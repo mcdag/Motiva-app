@@ -1,0 +1,22 @@
+@import '../../global//refs.scss';
+
+.main-layout {
+  max-width: 650px;
+  @include flex(space-between, center, column);
+  margin: auto;
+  height: 100vh;
+  border-left: 1px solid $gray;
+  border-right: 1px solid $gray;
+
+  footer {
+    @include flex(space-between, center, row);
+    height: 70px;
+    width: 100%;
+    background-color: $orange;
+
+    .nav-icon {
+      margin: 0 20px;
+    }
+  }
+}
+

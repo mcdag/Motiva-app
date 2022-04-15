@@ -1,0 +1,44 @@
+$orange: #FF8411;
+$blue: #58A8E2;
+$gray: #C4C4C4;
+$darkOrange: #E37209;
+$usual-font: 'Roboto', sans-serif;
+$medium: 600;
+$regular: 500;
+
+@mixin  style-font($weight-font, $size-font) {
+  @if $weight-font == light {
+      font-weight: normal;
+  } @else if $weight-font == bold {
+      font-weight: $medium;
+  }
+
+  @if $size-font == 12pt {
+      font-size: 0.86rem;
+  } @else if $size-font == 14pt {
+      font-size: 1rem;
+  } @else if $size-font == 20pt {
+      font-size: 1.43rem;
+  }
+}
+
+@mixin box-shadow($args...) {
+  -webkit-box-shadow: $args;
+  -moz-box-shadow: $args;
+  -o-box-shadow: $args;
+  box-shadow: $args;
+}
+
+@mixin flex($justify: flex-start, $align: stretch, $direction: row, $wrap: nowrap) {
+  @if ($justify == cc) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } @else {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+  }
+}

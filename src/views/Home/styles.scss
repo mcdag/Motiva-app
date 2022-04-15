@@ -1,0 +1,6 @@
+@import '../../global//refs.scss';
+
+.home-container {
+  height: 100%;
+  @include flex(cc);
+}
