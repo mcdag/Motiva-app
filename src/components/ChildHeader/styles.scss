@@ -1,0 +1,34 @@
+@import '../../global//refs.scss';
+
+.child-header-container {
+    width: 100%;
+    margin-top: 15px;
+    @include flex(center, center, column);
+}
+
+.content {
+    width: 90%;
+    margin-bottom: 15px;
+    @include flex(space-between, center, row);
+
+    .coin {
+        background-color: $yellow;
+        @include flex(space-between, center, row);
+        border-radius: 30px 30px 30px 30px;
+        .coin-icon {
+           
+        }
+        .value {
+            margin: 0 0 2px 0;
+            padding: 0 10px;
+            color: white;
+            @include style-font(normal, 18pt);
+        }
+    }
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: $gray;
+}
