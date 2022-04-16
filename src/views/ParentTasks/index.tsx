@@ -4,11 +4,13 @@ import { Divider, IconButton, List, ListItem } from '@mui/material';
 import TrashCanIcon from '../../assets/trash-can-icon.svg';
 import AddIcon from '../../assets/add-icon.svg';
 import './styles.scss';
+import UserInfo from "../../components/UserInfo";
 
 function ParentTasks() {
   const tasks: string[] = ['Arrumar a cama', 'Escovar os dentes', 'Estudar para a prova', 'Estudar piano', 'Contar como foi o dia'];
   return (
     <TabBar >
+      <UserInfo />
       <div className='parents-tasks'> 
         <text className='title'> Atividades </text>
         <SearchBar />
