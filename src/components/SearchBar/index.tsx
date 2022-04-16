@@ -16,6 +16,7 @@ function SearchBar() {
     <div className='search-bar-container'>
       <TextField
         className='search-bar'
+        placeholder='Search'
         id="search-bar"
         InputProps={{
           startAdornment: 
