@@ -1,0 +1,39 @@
+@import '../../global//refs.scss';
+
+.parents-tasks {
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  font: 'Outfit';
+
+  .title {
+    color: $orange;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .tasks {
+    margin-top: 15%;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+
+    .task {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 5%;
+       
+      .trash-can-icon {
+        margin-left: 2.5%;
+      }
+    }
+  }
+}
+
+.add-button {
+  margin-left: auto;
+  margin-top: auto;
+}
