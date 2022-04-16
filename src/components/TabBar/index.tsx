@@ -9,7 +9,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-function AppLayout({ children }: Props) {
+function TabBar({ children }: Props) {
   return (
     <div className="main-layout">
       {children}
@@ -23,4 +23,4 @@ function AppLayout({ children }: Props) {
   );
 }
 
-export default AppLayout;
+export default TabBar;
