@@ -12,7 +12,7 @@ function ParentTasks() {
       <div className='parents-tasks'> 
         <text className='title'> Atividades </text>
         <SearchBar />
-        <List className='tasks' sx={{width: '135%'}}component="nav" aria-label="tasks">
+        <List className='tasks' sx={{width: '135%'}} component="nav" aria-label="tasks">
         {tasks.map((task) =>
             <div>
               <ListItem className='task'>

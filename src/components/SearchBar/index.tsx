@@ -15,6 +15,7 @@ function SearchBar() {
   return (
     <div className='search-bar-container'>
       <TextField
+        fullWidth
         className='search-bar'
         placeholder='Search'
         id="search-bar"
