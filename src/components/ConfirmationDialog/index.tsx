@@ -13,14 +13,20 @@ interface Props {
 function ConfirmationDialog({data, open, handleFunction}: Props){
   return (
     <Dialog
-    sx={{opacity:1}}
+    hideBackdrop={true}
+    PaperProps={{
+      style: {
+        borderRadius: '20px',
+        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      },
+    }}
     className='confirmation-dialog-container'
     open={open}
     onClose={handleFunction}
     aria-labelledby="confirmation-dialog-title"
     aria-describedby="confirmation-dialog-description"
   >
-     <img className='avatar' width='35%' src={ExampleAvatar} alt="Avatar da criança" />
+     <img className='avatar' width='37.5%' src={ExampleAvatar} alt="Avatar da criança" />
     <DialogTitle className='title' id="confirmation-dialog-title">
       {`Deseja mesmo excluir esta ${data}?`}
     </DialogTitle>
