@@ -1,0 +1,31 @@
+@import '../../global//refs.scss';
+
+.confirmation-dialog-container {
+    font: 'Outfit';
+    text-align: center;
+
+  .avatar {
+    margin: 6%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .title {
+    color: black;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 21px;
+  }
+
+  .content {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  .button {
+    width: 35%;
+    background-color: $orange;
+    margin: 5%;
+  }
+}

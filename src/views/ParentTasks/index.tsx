@@ -5,9 +5,18 @@ import TrashCanIcon from '../../assets/trash-can-icon.svg';
 import AddIcon from '../../assets/add-icon.svg';
 import './styles.scss';
 import UserInfo from "../../components/UserInfo";
+import { useState } from 'react';
+import ConfirmationDialog from "../../components/ConfirmationDialog";
 
 function ParentTasks() {
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(!open);
+  };
+
   const tasks: string[] = ['Arrumar a cama', 'Escovar os dentes', 'Estudar para a prova', 'Estudar piano', 'Contar como foi o dia'];
+
   return (
     <TabBar >
       <UserInfo />
@@ -19,9 +28,10 @@ function ParentTasks() {
             <div>
               <ListItem className='task'>
                 <text> {task} </text>
-                <IconButton className='trash-can-icon'>
+                <IconButton className='trash-can-icon' onClick={handleClickOpen}>
                   <img src={TrashCanIcon} alt="Lata de lixo" />
                 </IconButton>
+                <ConfirmationDialog data='atividade' open={open} handleFunction={handleClickOpen} />
               </ListItem>
               <Divider />
             </div>

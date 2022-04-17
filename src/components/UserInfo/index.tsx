@@ -1,5 +1,5 @@
 import { Divider, IconButton, List } from '@mui/material';
-import ExampleAvatar from '../../assets/avatar-example.svg';
+import ExampleAvatar from '../../assets/avatar-icon.svg';
 import './styles.scss';
 
 function UserInfo() {
