@@ -28,5 +28,9 @@
     width: 35%;
     background-color: $orange;
     margin: 5%;
+
+    &:hover {
+      background-color: $darkOrange;
+    }
   }
 }
