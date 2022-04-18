@@ -45,12 +45,20 @@ function ParentsList({title, checkbox, addButton, list}: Props) {
                 <text> {listObject} </text>
                 {
                 checkbox ? 
-                  <Checkbox className='icon' checked={checks[index]}
+                  <Checkbox sx={{
+                    transform: 'scale(1.3)',
+                    color: '#747474',
+                    '&.Mui-checked': {
+                      color: '#fa971d',
+                    },
+                  }} className='check-box' checked={true}
                   onClick={() => handleChecks(index)}/>
                   :
                   <><IconButton className='icon' onClick={handleClickOpen}>
                     <img src={TrashCanIcon} alt='Lata de lixo' />
-                  </IconButton><ConfirmationDialog data={title.toLowerCase().substring(0, title.length-1)} open={open} handleFunction={handleClickOpen} /></>
+                  </IconButton>
+                  <ConfirmationDialog data={title.toLowerCase().substring(0, title.length-1)} open={open} handleFunction={handleClickOpen} />
+                  </>
                 }
               </ListItem>
               <Divider />
