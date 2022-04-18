@@ -1,6 +1,6 @@
 @import '../../global//refs.scss';
 
-.parents-tasks {
+.parents-list {
   display:flex;
   align-items: center;
   flex-direction: column;
@@ -14,26 +14,17 @@
     line-height: 38px;
   }
 
-  .tasks {
+  .list {
     margin-top: 15%;
     font-weight: 400;
     font-size: 20px;
     line-height: 25px;
 
-    .task {
+    .list-object {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      margin-top: 5%;
-       
-      .trash-can-icon {
-        margin-left: 2.5%;
-      }
+      margin-top: 4%;
     }
   }
-}
-
-.add-button {
-  margin-left: auto;
-  margin-top: auto;
 }
