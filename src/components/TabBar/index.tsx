@@ -11,14 +11,16 @@ interface Props {
 
 function TabBar({ children }: Props) {
   return (
-    <div className="main-layout">
+    <div className='main-layout'>
       {children}
-    <footer>
-      <img className='nav-icon' src={HomeIcon} alt="Icone da home" />
-      <img className='nav-icon' src={TasksIcon} alt="Icone de tasks" />
-      <img className='nav-icon' src={RewardIcon} alt="Icone de recompensas" />
-      <img className='nav-icon' src={ProfileIcon} alt="Icone de perfil" />
-    </footer>
+    <div className='tab-bar'>
+      <footer>
+        <img className='nav-icon' src={HomeIcon} alt="Icone da home" />
+        <img className='nav-icon' src={TasksIcon} alt="Icone de tasks" />
+        <img className='nav-icon' src={RewardIcon} alt="Icone de recompensas" />
+        <img className='nav-icon' src={ProfileIcon} alt="Icone de perfil" />
+      </footer>
+    </div>
     </div>
   );
 }
