@@ -14,11 +14,15 @@
     line-height: 38px;
   }
 
-  .list-activities {
+  .activities-list {
     margin-top: 15%;
     font-weight: 400;
     font-size: 20px;
     line-height: 25px;
+
+    .activities-subtitle {
+      color: $darkOrange;
+    }
 
     .activity {
       display: flex;
