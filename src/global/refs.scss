@@ -6,6 +6,7 @@ $yellow: #FFC700;
 $usual-font: 'Roboto', sans-serif;
 $medium: 600;
 $regular: 500;
+$width: 100vw;
 
 @mixin  style-font($weight-font, $size-font) {
   @if $weight-font == light {
@@ -22,6 +23,8 @@ $regular: 500;
       font-size: 1.21rem;
   } @else if $size-font == 20pt {
       font-size: 1.43rem;
+  } @else if $size-font == 25pt {
+    font-size: 1.78rem;
   }
 }
 
