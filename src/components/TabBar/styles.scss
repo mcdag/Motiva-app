@@ -2,7 +2,7 @@
 
 .main-layout {
   max-width: 650px;
-  @include flex(space-between, center, column);
+  @include flex(flex-start, center, column);
   margin: auto;
   height: 100vh;
   border-left: 1px solid $gray;
@@ -10,7 +10,8 @@
 
   .tab-bar {
     width: 100%;
-    margin-top: auto;
+    position: fixed;
+    bottom: 0;
 
     footer {
       @include flex(space-between, center, row);

@@ -1,10 +1,22 @@
-import ParentsList from '../../components/ParentsList';
+import ParentsActivitiesList from '../../components/ParentsActivitiesList';
+import { Activity, ActivityList } from '../../interfaces/Activities';
 
 function ParentsActivities() {
-  const list: string[] = ['Arrumar a cama', 'Escovar os dentes', 'Estudar para a prova', 'Estudar piano', 'Contar como foi o dia'];
+  const aloneList: Activity[] = [
+    {id:1, name: 'Arrumar a cama', status: false },
+    {id:2, name: 'Escovar os dentes', status: true },
+    {id:3, name: 'Estudar para a prova', status: false },
+  ];
+  const parentList: Activity[] = [
+    {id:4, name: 'xxx', status: false },
+    {id:5, name: 'yyy', status: false },
+    {id:6, name: 'zzz', status: false },
+    {id:7, name: 'www', status: false }
+  ];
+  const list: ActivityList = {alone:aloneList, parent:parentList};
 
   return (
-    <ParentsList title={'Atividades'} checkbox={false} addButton={true} list={list} />
+    <ParentsActivitiesList title={'Atividades'} checkbox={false} addButton={true} list={list} />
   );
 }
 

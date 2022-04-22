@@ -1,12 +1,12 @@
 @import '../../global//refs.scss';
 
-.parents-list {
+.rewards {
   display:flex;
   align-items: center;
   flex-direction: column;
   font: 'Outfit';
 
-  .title {
+  .rewards-title {
     color: $orange;
     font-weight: bold;
     font-style: normal;
@@ -14,17 +14,26 @@
     line-height: 38px;
   }
 
-  .list {
+  .rewards-list {
     margin-top: 15%;
+    margin-bottom: 150px;
     font-weight: 400;
     font-size: 20px;
     line-height: 25px;
 
-    .list-object {
+    .reward {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       margin-top: 4%;
     }
   }
+}
+
+.rewards-buttons {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 80px;
 }

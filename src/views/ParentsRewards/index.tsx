@@ -1,10 +1,10 @@
-import ParentsList from '../../components/ParentsList';
+import ParentsRewardsList from "../../components/ParentsRewardsList";
 
 function ParentsRewards() {
   const list: string[] = ['Ir para cinema', 'Ir para o estádio', 'Jogar Xbox por 2 horas', 'Jogar Xbox por 1 hora'];
 
   return (
-    <ParentsList title={'Recompensas'} checkbox={false} addButton={true} list={list} />
+    <ParentsRewardsList title={'Recompensas'} list={list} />
   );
 }
 
