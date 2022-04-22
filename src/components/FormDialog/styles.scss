@@ -1,0 +1,44 @@
+@import '../../global//refs.scss';
+
+.form-dialog-container {
+  font: 'Outfit';
+  text-align: center;
+  background: rgba(0, 0, 0, 0.25);
+
+  .coin-image {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+  }
+
+  .form-dialog-title {
+    color: black;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 21px;
+  }
+
+  .form-dialog-content {
+    .form-dialog-description {
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 16px;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+
+    .button {
+      width: 35%;
+      background-color: $orange;
+      margin: 5%;
+      color: white;
+  
+      &:hover {
+        background-color: $darkOrange;
+      }
+    }
+  }
+}
