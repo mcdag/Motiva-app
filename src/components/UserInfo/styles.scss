@@ -1,0 +1,22 @@
+@import '../../global//refs.scss';
+
+.user-info-container {
+  width: 100%;
+  margin-bottom: 10%;
+  font-weight: 400;
+  font-size: 21px;
+
+  .user-info {
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+
+    .avatar {
+      margin: 0 3%;
+    }
+
+    .name {
+      margin: 4.5% 0;
+    }
+  }
+}

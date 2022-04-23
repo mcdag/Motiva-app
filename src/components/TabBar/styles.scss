@@ -1,0 +1,28 @@
+@import '../../global//refs.scss';
+
+.main-layout {
+  max-width: 650px;
+  @include flex(flex-start, center, column);
+  margin: auto;
+  height: 100vh;
+  border-left: 1px solid $gray;
+  border-right: 1px solid $gray;
+
+  .tab-bar {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+
+    footer {
+      @include flex(space-between, center, row);
+      height: 70px;
+      width: 100%;
+      background-color: $orange;
+
+      .nav-icon {
+        margin: 0 20px;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,39 @@
+@import '../../global//refs.scss';
+
+.rewards {
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  font: 'Outfit';
+
+  .rewards-title {
+    color: $orange;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .rewards-list {
+    margin-top: 15%;
+    margin-bottom: 150px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+
+    .reward {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 4%;
+    }
+  }
+}
+
+.rewards-buttons {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 80px;
+}

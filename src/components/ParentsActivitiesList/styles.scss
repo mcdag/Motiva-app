@@ -1,0 +1,47 @@
+@import '../../global//refs.scss';
+
+.parents-list {
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  font: 'Outfit';
+
+  .activities-title {
+    color: $orange;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .activities-list {
+    margin-top: 15%;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+
+    .activities-subtitle {
+      color: $darkOrange;
+    }
+
+    .activity {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 4%;
+    }
+  }
+}
+
+.button-activities-padding {
+  width: 1px;
+  padding-bottom: 150px;
+}
+
+.button-activities {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 80px;
+}
