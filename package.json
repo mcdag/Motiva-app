@@ -16,6 +16,7 @@
     "@types/react": "^16.14.25",
     "@types/react-dom": "^16.9.14",
     "@types/react-router-dom": "^5.3.3",
+    "axios": "^0.26.1",
     "js-cookie": "^3.0.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

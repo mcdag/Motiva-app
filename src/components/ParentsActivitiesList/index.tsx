@@ -4,7 +4,7 @@ import { Checkbox, Divider, IconButton, List, ListItem } from '@mui/material';
 import TrashCanIcon from '../../assets/trash-can-icon.svg';
 import AddIcon from '../../assets/add-icon.svg';
 import UserInfo from '../../components/UserInfo';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ConfirmationDialog from '../../components/ConfirmationDialog';
 import { ActivityList } from '../../interfaces/Activities';
 import './styles.scss';
@@ -24,12 +24,25 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
     setOpenTrashDialog(!openTrashDialog);
   };
 
-  const [checks, setChecks] = useState<boolean[]>([]);
+  const oldChecksAlone = list.alone.map((element) => element.status);
+  const oldChecksParents = list.parent.map((element) => element.status);
 
-  const handleChecks = (index: number) => {
-    const newChecks = checks;
+  const [checksAlone, setChecksAlone] = useState<boolean[]>(oldChecksAlone);
+  const [checksParent, setChecksParent] = useState<boolean[]>(oldChecksParents);
+  
+  useEffect(() => {
+  }, [checksAlone, checksParent]);
+
+  const handleChecksAlone = (index: number) => {
+    const newChecks = checksAlone;
     newChecks[index] = !(newChecks[index]);
-    setChecks(newChecks);
+    setChecksAlone(newChecks);
+  };
+
+  const handleChecksParent = (index: number) => {
+    const newChecks = checksParent;
+    newChecks[index] = !(newChecks[index]);
+    setChecksParent(newChecks);
   };
 
   return (
@@ -52,8 +65,8 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
                     '&.Mui-checked': {
                       color: '#fa971d',
                     },
-                  }} className='check-box' checked={activity.status}
-                  onClick={() => handleChecks(index)}/>
+                  }} className='check-box' checked={checksAlone[index]}
+                  onClick={() => handleChecksAlone(index)}/>
                   :
                   <><IconButton className='icon' onClick={handleClickOpenTrashDialog}>
                     <img src={TrashCanIcon} alt='Lata de lixo' />
@@ -80,8 +93,8 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
                     '&.Mui-checked': {
                       color: '#fa971d',
                     },
-                  }} className='check-box' checked={activity.status}
-                  onClick={() => handleChecks(index)}/>
+                  }} className='check-box' checked={checksParent[index]}
+                  onClick={() => handleChecksParent(index)}/>
                   :
                   <><IconButton className='icon' onClick={handleClickOpenTrashDialog}>
                     <img src={TrashCanIcon} alt='Lata de lixo' />
