@@ -2,9 +2,11 @@ $orange: #FF8411;
 $blue: #58A8E2;
 $gray: #C4C4C4;
 $darkOrange: #E37209;
+$yellow: #FFC700;
 $usual-font: 'Outfit', sans-serif;
 $medium: 600;
 $regular: 500;
+$width: 100vw;
 
 @mixin  style-font($weight-font, $size-font) {
   @if $weight-font == light {
@@ -17,8 +19,12 @@ $regular: 500;
       font-size: 0.86rem;
   } @else if $size-font == 14pt {
       font-size: 1rem;
+  } @else if $size-font == 18pt {
+      font-size: 1.21rem;
   } @else if $size-font == 20pt {
       font-size: 1.43rem;
+  } @else if $size-font == 25pt {
+    font-size: 1.78rem;
   }
 }
 

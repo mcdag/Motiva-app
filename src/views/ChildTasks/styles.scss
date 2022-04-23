@@ -1,0 +1,38 @@
+@import '../../global//refs.scss';
+
+.child-task-container {
+    width: 100%;
+    .body {
+        .body-header {
+            @include flex(space-between, center, row);
+    
+            .title {
+                text-align: center;
+                margin: 20px 0;
+                margin-left: calc($width/2 - 67px);
+                @include style-font(bold, 25pt);
+            }
+    
+            .logout {
+                margin-right: 20px;
+            }
+        }
+        .child-tasks {
+            margin-top: 25px;
+            @include flex(flex-start, center, column);
+            
+        }
+        .parent-tasks {
+            margin-top: 25px;
+            @include flex(flex-start, center, column);
+
+        }
+        h2 {
+            width: 90%;
+            margin: 0px;
+            margin-bottom: 10px;
+            color: $orange;
+            @include style-font(light, 20pt); 
+        }
+    }
+}
