@@ -6,7 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { MouseEventHandler } from 'react';
-import RewardIcon from '../../assets/coin-icon.svg';
+import RewardIcon from '../../assets/coin-2-icon.svg';
 import './styles.scss';
 
 interface Props {

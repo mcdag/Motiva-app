@@ -2,7 +2,7 @@ import SearchBar from '../../components/SearchBar';
 import TabBar from '../../components/TabBar';
 import { Divider, IconButton, List, ListItem } from '@mui/material';
 import TrashCanIcon from '../../assets/trash-can-icon.svg';
-import RewardIcon from '../../assets/coin-icon.svg';
+import RewardIcon from '../../assets/coin-2-icon.svg';
 import AddIcon from '../../assets/add-icon.svg';
 import UserInfo from '../../components/UserInfo';
 import { useState } from 'react';
