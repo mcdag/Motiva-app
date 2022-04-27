@@ -1,0 +1,44 @@
+.instruction-container {
+  display: flex;
+  width: 90%;
+
+  .instruction-header {
+    width: 90%;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 32px;
+    align-items: center;
+    padding: 2%;
+
+    .header-left {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      
+      .instruction-title {
+        width: fit-content;
+        margin-left: 3%;
+      }
+    }
+
+    .header-right {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      
+      .instruction-title {
+        width: fit-content;
+        margin-right: 3%;
+      }
+    }
+  }
+
+  .instruction-description {
+    align-items: center;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+  }
+}
