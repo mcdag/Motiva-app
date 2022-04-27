@@ -1,0 +1,26 @@
+@import '../../global//refs.scss';
+
+.child-rewardss-container {
+    width: 100%;
+    .body {
+        .body-header {
+            @include flex(flex-start, center, column);
+            .title {
+                text-align: center;
+                margin: 20px 0;
+                @include style-font(bold, 25pt);
+            }
+            .subtitle {
+                width: 90%;
+                margin: 5px 0 20px 0;
+                @include style-font(light, 14pt);
+            }
+
+        }
+        .child-rewards {
+            margin-top: 25px;
+            @include flex(flex-start, center, column);
+            
+        }
+    }
+}

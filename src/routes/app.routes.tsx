@@ -8,6 +8,7 @@ import ActivityInstructions from '../views/Instructions';
 import ParentsActivities from '../views/ParentsActivities';
 import ParentsDayActivities from '../views/ParentsDayActivities';
 import ParentsRewards from '../views/ParentsRewards';
+import ChildRewards from '../views/ChildRewards';
 import Route from './Route';
 
 const AppRoutes: React.FC<RouteProps> = () => {
@@ -20,6 +21,7 @@ const AppRoutes: React.FC<RouteProps> = () => {
         <Route path={`${path}/parents-rewards`} component={ParentsRewards} />
         <Route path={`${path}/child-activities`} component={ChildActivities} />
         <Route path={`${path}/activities-instructions`} component={ActivityInstructions} />
+        <Route path={`${path}/child-rewards`} component={ChildRewards} />
         <Route path={`${path}/home`} component={Home} />
         <Redirect to={`${path}/activities-instructions`} />
       </Switch>

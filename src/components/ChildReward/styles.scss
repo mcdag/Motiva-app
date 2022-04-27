@@ -1,0 +1,29 @@
+@import '../../global//refs.scss';
+
+.child-reward-container {
+    width: 90%;
+
+    .reward {
+        @include flex(flex-start, center, row);
+        .reward-name {
+            margin-left: 20px;
+            max-width: 200px;
+        }
+        .coin-cointainer {
+            @include flex(flex-start, center, row);
+            margin-left: auto;
+            .coin-icon {
+                width: 20px ; 
+            }
+            .coin-value {
+                margin-left: 5px;
+                color: #FFC700;
+            }          
+        }
+    }
+    .line {
+        width: 100%;
+        height: 1px;
+        background-color: $gray;
+    }
+}
