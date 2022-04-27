@@ -1,8 +1,6 @@
-import React from 'react';
-import './styles.scss';
-
 import NoCheckIcon from '../../assets/no-check-icon.svg';
 import CheckIcon from '../../assets/check-icon.svg';
+import './styles.scss';
 
 interface Props {
     activityStatus: boolean;
@@ -10,8 +8,6 @@ interface Props {
 }
 
 function ChildActivity({activityStatus, activityName} : Props) {
-    console.log(activityName);
-    console.log(activityStatus);
     return (
         <div className='child-activity-container'>
             <div className='status-name'>

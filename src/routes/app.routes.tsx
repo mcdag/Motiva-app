@@ -4,6 +4,7 @@ import {
   Home,
 } from '../views';
 import ChildActivities from '../views/ChildActivities';
+import ActivityInstructions from '../views/Instructions';
 import ParentsActivities from '../views/ParentsActivities';
 import ParentsDayActivities from '../views/ParentsDayActivities';
 import ParentsRewards from '../views/ParentsRewards';
@@ -18,8 +19,9 @@ const AppRoutes: React.FC<RouteProps> = () => {
         <Route path={`${path}/parents-activities`} component={ParentsActivities} />
         <Route path={`${path}/parents-rewards`} component={ParentsRewards} />
         <Route path={`${path}/child-activities`} component={ChildActivities} />
+        <Route path={`${path}/activities-instructions`} component={ActivityInstructions} />
         <Route path={`${path}/home`} component={Home} />
-        <Redirect to={`${path}/home`} />
+        <Redirect to={`${path}/activities-instructions`} />
       </Switch>
   );
 };
