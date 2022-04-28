@@ -5,6 +5,10 @@
   margin-bottom: 10%;
   font-weight: 400;
   font-size: 21px;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 2;
 
   .user-info {
     display: flex;
