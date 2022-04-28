@@ -1,5 +1,5 @@
 import SearchBar from '../../components/SearchBar';
-import TabBar from '../../components/TabBar';
+import AppLayout from '../../components/AppLayout';
 import { Divider, IconButton, List, ListItem } from '@mui/material';
 import TrashCanIcon from '../../assets/trash-can-icon.svg';
 import RewardIcon from '../../assets/coin-2-icon.svg';
@@ -30,8 +30,8 @@ function ParentsRewardsList({title, list}: Props) {
   };
 
   return (
-    <TabBar >
-      <UserInfo />
+    <div className='main-content'>
+      {/* <UserInfo /> */}
       <div className='rewards'> 
         <text className='rewards-title'> {title} </text>
         <SearchBar />
@@ -62,7 +62,7 @@ function ParentsRewardsList({title, list}: Props) {
         <img src={AddIcon} alt='Adicionar' />
       </IconButton>
       </div>
-    </TabBar>
+    </div>
   );
 }
 

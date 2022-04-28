@@ -5,6 +5,7 @@
   align-items: center;
   flex-direction: column;
   font: 'Outfit';
+  width: 100%;
 
   .activities-title {
     color: $orange;
@@ -15,7 +16,7 @@
   }
 
   .activities-list {
-    margin-top: 15%;
+    width: 100%;
     font-weight: 400;
     font-size: 20px;
     line-height: 25px;
