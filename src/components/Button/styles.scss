@@ -1,0 +1,15 @@
+.main-button {
+  text-align: center;
+  cursor: pointer;
+  background-color: #E37209;
+  color: #FFFFFF;
+  border: none;
+  font-weight: 500;
+  width: 100%;
+  padding: 15px 10px;
+  border-radius: 5px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

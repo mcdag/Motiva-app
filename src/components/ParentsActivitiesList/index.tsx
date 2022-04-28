@@ -1,5 +1,4 @@
 import SearchBar from '../../components/SearchBar';
-import TabBar from '../../components/TabBar';
 import { Checkbox, Divider, IconButton, List, ListItem } from '@mui/material';
 import TrashCanIcon from '../../assets/trash-can-icon.svg';
 import AddIcon from '../../assets/add-icon.svg';
@@ -43,8 +42,8 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
   };
 
   return (
-    <TabBar >
-      <UserInfo />
+    < >
+      {/* <UserInfo /> */}
       <div className='parents-list'> 
         <text className='activities-title'> {title} </text>
         <SearchBar />
@@ -116,7 +115,7 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
       <></>
       }
       </div>
-    </TabBar>
+    </>
   );
 }
 

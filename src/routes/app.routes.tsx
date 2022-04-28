@@ -2,7 +2,9 @@ import React from 'react';
 import { Switch, RouteProps, useRouteMatch, Redirect } from 'react-router-dom';
 import {
   Home,
+  ParentsActivitiesCreate
 } from '../views';
+import AppLayout from '../components/AppLayout';
 import ChildActivities from '../views/ChildActivities';
 import ActivityInstructions from '../views/Instructions';
 import LoginParentChild from '../views/LoginParentChild';
@@ -25,6 +27,14 @@ const AppRoutes: React.FC<RouteProps> = () => {
         <Route path={`${path}/login-parent-child`} component={LoginParentChild} exact/>
         <Route path={`${path}/child-rewards`} component={ChildRewards} />
         <Route path={`${path}/home`} component={Home} />
+        
+        {/* Rotas que terão a barra de navegação */}
+        <AppLayout>
+          <Route exact path={`${path}/parents-activities/create`} component={ParentsActivitiesCreate} />
+          <Route path={`${path}/parents-day-activities`} component={ParentsDayActivities} />
+          <Route path={`${path}/parents-rewards`} component={ParentsRewards} />
+        </AppLayout>
+
         <Redirect to={`${path}/home`} />
       </Switch>
   );
