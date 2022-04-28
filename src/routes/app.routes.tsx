@@ -13,6 +13,7 @@ import ParentsDayActivities from '../views/ParentsDayActivities';
 import ParentsRewards from '../views/ParentsRewards';
 import ChildRewards from '../views/ChildRewards';
 import Route from './Route';
+import LoginParentAndChild from '../views/LoginParentAndChild';
 
 const AppRoutes: React.FC<RouteProps> = () => {
   const { path } = useRouteMatch();
@@ -26,6 +27,7 @@ const AppRoutes: React.FC<RouteProps> = () => {
         <Route path={`${path}/activities-instructions`} component={ActivityInstructions} exact/>
         <Route path={`${path}/login-parent-child`} component={LoginParentChild} exact/>
         <Route path={`${path}/child-rewards`} component={ChildRewards} />
+        <Route path={`${path}/login`} component={LoginParentAndChild} />
         <Route path={`${path}/home`} component={Home} />
         
         {/* Rotas que terão a barra de navegação */}
