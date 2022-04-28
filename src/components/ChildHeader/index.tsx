@@ -1,8 +1,6 @@
-import React from 'react';
-import './styles.scss';
-
 import CoinIcon from '../../assets/coin-icon.svg';
 import BackIcon from '../../assets/arrow-back-icon.svg';
+import './styles.scss';
 
 interface Props {
     valueCoin: number;

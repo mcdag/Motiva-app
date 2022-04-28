@@ -28,20 +28,17 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
 
   const [checksAlone, setChecksAlone] = useState<boolean[]>(oldChecksAlone);
   const [checksParent, setChecksParent] = useState<boolean[]>(oldChecksParents);
-  
-  useEffect(() => {
-  }, [checksAlone, checksParent]);
 
   const handleChecksAlone = (index: number) => {
     const newChecks = checksAlone;
     newChecks[index] = !(newChecks[index]);
-    setChecksAlone(newChecks);
+    setChecksAlone([...newChecks]);
   };
 
   const handleChecksParent = (index: number) => {
     const newChecks = checksParent;
     newChecks[index] = !(newChecks[index]);
-    setChecksParent(newChecks);
+    setChecksParent([...newChecks]);
   };
 
   return (
