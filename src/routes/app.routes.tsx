@@ -7,13 +7,14 @@ import {
 import AppLayout from '../components/AppLayout';
 import ChildActivities from '../views/ChildActivities';
 import ActivityInstructions from '../views/Instructions';
-import LoginParentChild from '../views/LoginParentChild';
 import ParentsActivities from '../views/ParentsActivities';
 import ParentsDayActivities from '../views/ParentsDayActivities';
 import ParentsRewards from '../views/ParentsRewards';
 import ChildRewards from '../views/ChildRewards';
 import Route from './Route';
 import ParentsActivitiesCreate from '../views/ParentsActivitiesCreate';
+import Register from '../views/Register';
+import choseLogin from '../views/choseLogin';
 
 const AppRoutes: React.FC<RouteProps> = () => {
   const { path } = useRouteMatch();
@@ -25,9 +26,10 @@ const AppRoutes: React.FC<RouteProps> = () => {
         <Route path={`${path}/parents-rewards`} component={ParentsRewards} exact/>
         <Route path={`${path}/child-activities`} component={ChildActivities} exact/>
         <Route path={`${path}/activities-instructions`} component={ActivityInstructions} exact/>
-        <Route path={`${path}/login-parent-child`} component={LoginParentChild} exact/>
+        <Route path={`${path}/chose-login`} component={choseLogin} exact/>
         <Route path={`${path}/child-rewards`} component={ChildRewards} />
         <Route path={`${path}/login`} component={Login} />
+        <Route path={`${path}/register`} component={Register} />
         
         {/* Rotas que terão a barra de navegação */}
         <AppLayout>

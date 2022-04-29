@@ -1,0 +1,44 @@
+@import '../../global//refs.scss';
+
+.general-register-container {
+  min-height: 100vh;
+  margin-top: 17%;
+  margin-left: 10%;
+  width: 80%;
+
+  .title {
+    color: $darkOrange;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 43px;
+    margin-bottom: 7%;
+  }
+
+  .subtitle {
+    color: black;
+    font-weight: 400;
+    font-size: 25px;
+  }
+
+  .text-fields {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20%;
+    margin-bottom: 30%;
+  }
+
+  .button-register {
+    margin-bottom: 8%;
+  }
+
+  .has-login {
+    display: flex;
+    justify-content: center;
+    
+    .button {
+      background-color: transparent;
+      border: 0;
+      font-weight: 800;
+    }
+  }
+}
