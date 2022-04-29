@@ -3,8 +3,8 @@
 .general-login-container {
   min-height: 100vh;
   margin-top: 17%;
-  margin-left: 5%;
-  width: 90%;
+  margin-left: 10%;
+  width: 80%;
 
   .title {
     color: $darkOrange;
@@ -31,7 +31,7 @@
   .forgot-password {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 22%;
+    margin-bottom: 25%;
 
     .button-forget-password {
       background-color: transparent;
@@ -43,7 +43,7 @@
   }
 
   .button-submit {
-    margin-bottom: 15%;
+    margin-bottom: 20%;
   }
 
   .child-or-parent {
