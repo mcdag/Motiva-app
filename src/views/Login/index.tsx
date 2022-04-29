@@ -1,6 +1,6 @@
 import { TextField } from '@mui/material';
 import { useState } from 'react';
-import ButtonProject from '../../components/Button';
+import Button from '../../components/Button';
 import './styles.scss'
 
 function Login() {
@@ -42,7 +42,7 @@ function Login() {
         }
       </div>
       <div className='button-submit'>
-        <ButtonProject type='submit' onClick={handleClick} text='Salvar'/>
+        <Button type='submit' onClick={handleClick} text='Salvar'/>
       </div>
       <div className='child-or-parent'>
         {
