@@ -1,0 +1,83 @@
+@import '../../global//refs.scss';
+
+.general-login-container {
+  min-height: 100vh;
+  margin-top: 17%;
+  margin-left: 10%;
+  width: 80%;
+
+  .title {
+    color: $darkOrange;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 43px;
+    margin-bottom: 13%;
+  }
+
+  .subtitle {
+    color: black;
+    font-weight: 400;
+    font-size: 25px;
+    margin: 2% 0;
+  }
+
+  .text-fields {
+    display: flex;
+    flex-direction: column;
+    margin-top: 32%;
+    margin-bottom: 5%;
+  }
+
+  .forgot-password {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 25%;
+
+    .button-forget-password {
+      background-color: transparent;
+      border: 0;
+      font-weight: 800;
+      font-size: 15px;
+      line-height: 19px;
+    }
+  }
+
+  .button-submit {
+    margin-bottom: 20%;
+  }
+
+  .child-or-parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .parent {
+      .parent-text {
+        display: flex;
+        justify-content: center;
+        font-size: 16px;
+        line-height: 20px;
+  
+        .button-text {
+          font-weight: 400;
+        }
+
+        .button {
+          background-color: transparent;
+          border: 0;
+          font-weight: 800;
+        }
+      }
+    }
+    .child {
+      display: flex;
+      justify-content: center;
+
+      .button {
+        background-color: transparent;
+        border: 0;
+        font-weight: 800;
+      }
+    }
+  }
+}

@@ -3,13 +3,12 @@ import { Switch, RouteProps, useRouteMatch, Redirect, BrowserRouter as Router } 
 import {
   Home,
   ParentsActivitiesCreate,
-  SelectChild
+  SelectChild,
+  Login,
 } from '../views';
-import WithNav from '../components/WithNav';
 import NoNav from '../components/NoNav';
 import ChildActivities from '../views/ChildActivities';
 import ActivityInstructions from '../views/Instructions';
-import LoginParentChild from '../views/LoginParentChild';
 import ParentsActivities from '../views/ParentsActivities';
 import ParentsDayActivities from '../views/ParentsDayActivities';
 import ParentsRewards from '../views/ParentsRewards';
@@ -23,6 +22,9 @@ import ProfileIcon from '../assets/profile-icon.svg';
 import AvatarIcon from '../assets/avatar-icon.svg';
 import './styles.scss';
 import Route from './Route';
+import Register from '../views/Register';
+import choseLogin from '../views/choseLogin';
+import RewardRegister from '../views/RewardRegister';
 
 const AppRoutes: React.FC<RouteProps> = () => {
   const { path } = useRouteMatch();
@@ -30,27 +32,32 @@ const AppRoutes: React.FC<RouteProps> = () => {
   return (
     <Router>
       <Switch>
-        <Route path={`${path}/parents-activities`} component={ParentsActivities}/>
-        <Route path={`${path}/child-activities`} component={ChildActivities}/>
-        <Route path={`${path}/activities-instructions`} component={ActivityInstructions}/>
         <Route path={`${path}/login-parent-child`} component={LoginParentChild}/>
-        <Route path={`${path}/child-rewards`} component={ChildRewards} />
-
         <Route path={`${path}/parents-activities-create`} component={ParentsActivitiesCreate} />
-        <Route path={`${path}/parents-day-activities`} component={ParentsDayActivities} />
-        <Route path={`${path}/parents-rewards`} component={ParentsRewards} />
         <Route path={`${path}/select-child`} component={SelectChild} />
         <Route path={`${path}/register-child`} component={RegisterChild} />
-        
-        {/* Rotas que terão a barra de navegação */}
-        {/* <Route
-          path={[`${path}/parents-activities-create`, `${path}/parents-day-activities`, `${path}/parents-rewards`]}
-          component={WithBar}
-        /> */}
-
-        <Route path={`${path}/home`} component={Home} />
 
         <Redirect to={`/home`} />
+        <Route path={`${path}/parents-day-activities`} component={ParentsDayActivities} exact/>
+        <Route path={`${path}/parents-activities`} component={ParentsActivities} exact/>
+        <Route path={`${path}/parents-rewards`} component={ParentsRewards} exact/>
+        <Route path={`${path}/child-activities`} component={ChildActivities} exact/>
+        <Route path={`${path}/activities-instructions`} component={ActivityInstructions} exact/>
+        <Route path={`${path}/chose-login`} component={choseLogin} exact/>
+        <Route path={`${path}/child-rewards`} component={ChildRewards} />
+        <Route path={`${path}/login`} component={Login} />
+        <Route path={`${path}/register`} component={Register} />
+        
+        {/* Rotas que terão a barra de navegação */}
+        {/* <WithNav>
+          <Route exact path={`${path}/parents-activities/create`} component={ParentsActivitiesCreate} />
+          <Route path={`${path}/parents-day-activities`} component={ParentsDayActivities} />
+          <Route path={`${path}/parents-rewards`} component={ParentsRewards} />
+          <Route path={`${path}/reward-register`} component={RewardRegister} />
+        </WithNav> */}
+
+        <Route path={`${path}/home`} component={Home} />
+        <Redirect to={`${path}/home`} />
       </Switch>
     </Router>
   );

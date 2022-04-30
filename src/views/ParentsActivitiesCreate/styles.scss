@@ -5,6 +5,16 @@
   height: 100%;
   @include flex(unset, center, column);
 
+  .close-button {
+    @include flex(flex-end, center, row);
+    width: 100%;
+    margin-bottom: 30px;
+    button {
+      background: transparent;
+      border: 0;
+    }
+  }
+
   .title {
     font-size: 24px;
     font-weight: 500;

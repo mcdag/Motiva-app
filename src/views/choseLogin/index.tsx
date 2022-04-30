@@ -3,7 +3,7 @@ import AdultIcon from '../../assets/adult-icon.svg';
 import KidIcon from '../../assets/kid-icon.svg';
 import './styles.scss';
 
-function LoginParentChild() {
+function choseLogin() {
   return (
     <div className='login-parent-child-container'>
       <div className='parent-login'>
@@ -19,12 +19,13 @@ function LoginParentChild() {
         <p className='icon-title'> Criança </p>
       </div>
       <div className='login-register'>
-        <p className='text'>Não tem uma conta ?</p>
-        <Button sx={{ font: 'Outfit', fontWeight: '800', fontSize: '12px', lineHeight: '20px', color: '#000000'}}
-         variant='text' className='button' href='register'>Registre-se agora</Button>
+        <p className='button-text'>Não tem uma conta ?</p>
+        <button className='button'>
+            Registre-se agora
+        </button>
       </div>
     </div>
   );
 }
 
-export default LoginParentChild;
+export default choseLogin;

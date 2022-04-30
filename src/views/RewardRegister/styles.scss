@@ -1,0 +1,61 @@
+@import '../../global//refs.scss';
+
+.reward-register-container {
+  width: 100%;
+  height: 100%;
+  @include flex(unset, center, column);
+
+  .close-button {
+    @include flex(flex-end, center, row);
+    width: 100%;
+    margin-bottom: 30px;
+    button {
+      background: transparent;
+      border: 0;
+    }
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 4px 0 20px 0;
+  }
+
+  .reward-title, .reward-value {
+    width: 100%;
+    margin-bottom: 5%;
+
+    input {
+      outline: none;
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #C4C4C4;
+      font-size: 18px;
+      padding: 7px;
+      margin-bottom: 30px;
+  
+      &.with-icon {
+        padding-left: 45px;
+      }
+  
+      &.number {
+        width: 40px;
+        padding-left: 12px;
+        margin-right: 15px;
+      }
+    }
+    .input-icon {
+      @include flex(flex-start, center, row);
+
+      .coin-icon {
+        margin-right: -30px;
+        z-index: 2;
+        margin-bottom: 35px;
+      }
+    }
+  }
+  .save-button {
+    margin-top: 55%;
+    width: 100%;
+  }
+} 
