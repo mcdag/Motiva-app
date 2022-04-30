@@ -14,7 +14,6 @@ function ParentsRewards() {
     if (response.status === 200) {
       const { data } = response;
       setRewards(data);
-      console.log(data)
     }
   }
 

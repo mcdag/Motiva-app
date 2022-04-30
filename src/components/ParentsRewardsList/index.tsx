@@ -31,13 +31,11 @@ function ParentsRewardsList({title, list}: Props) {
     setOpenRewardsDialog(!openRewardsDialog);
   };
 
-  console.log(list)
-
   return (
     <WithNav>
       <div className='main-content'>
         <div className='rewards'> 
-          <text className='rewards-title'> {title} </text>
+          <p className='rewards-title'> {title} </p>
           <SearchBar />
           <List className='rewards-list' sx={{width: '135%'}} component='nav' aria-label='list'>
           {list.map((rewards, index) =>
