@@ -6,11 +6,11 @@ import ProfileIcon from '../../assets/profile-icon.svg';
 import AvatarIcon from '../../assets/avatar-icon.svg';
 import './styles.scss';
 
-interface Props {
+interface IProps {
   children: React.ReactNode;
 }
 
-function AppLayout({ children }: Props) {
+function WithNav({ children }: IProps) {
   return (
     <div className="main-layout">
       <header>
@@ -32,4 +32,4 @@ function AppLayout({ children }: Props) {
   );
 }
 
-export default AppLayout;
+export default WithNav;

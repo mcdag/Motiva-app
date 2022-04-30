@@ -14,9 +14,9 @@ function ParentsActivities() {
     }
   }
 
-  useEffect(() => {
-    get();
-  }, []);
+  // useEffect(() => {
+  //   get();
+  // }, []);
 
   return (
     <ParentsActivitiesList title={'Atividades'} checkbox={false} addButton={true} list={list as Tasks} />

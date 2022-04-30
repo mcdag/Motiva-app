@@ -1,10 +1,11 @@
 @import '../../global//refs.scss';
 
 .general-register-container {
-  min-height: 100vh;
-  margin-top: 17%;
-  margin-left: 10%;
-  width: 80%;
+  width: 100%;
+  max-width: 500px;
+  padding: 25px;
+  box-sizing: border-box;
+  margin: auto;
 
   .title {
     color: $darkOrange;

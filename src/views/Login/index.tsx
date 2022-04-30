@@ -1,17 +1,19 @@
 import { Alert, TextField } from '@mui/material';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Button from '../../components/Button';
 import { Auth, User } from '../../interfaces/User';
 import { UserService } from '../../services/UserService';
 import './styles.scss'
 
+interface IProps {
+  identifier: string;
+}
+
 function Login() {
-  let identifier = 'parent';
-  // identifier = 'child';
+  const { identifier }:IProps = useParams();
 
-
-  const [email, setEmail] = useState<string>('');
+  const [login, setLogin] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<boolean>(false);
   const [user, setUser] = useState<User>();

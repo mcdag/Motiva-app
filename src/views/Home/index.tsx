@@ -1,6 +1,6 @@
 import './styles.scss';
 
-function ViewTest() {
+function Home() {
   return (
     <div className='home-container'>
       <p>Tela em construção</p>
@@ -8,4 +8,4 @@ function ViewTest() {
   );
 }
 
-export default ViewTest;
+export default Home;

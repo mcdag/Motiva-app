@@ -2,7 +2,10 @@
 
 .user-info-container {
   width: 100%;
-  margin-bottom: 10%;
+  height: max-content;
+  max-width: 500px;
+  border-bottom: 1px solid $gray;
+  margin: auto;
   font-weight: 400;
   font-size: 21px;
   position: sticky;
@@ -13,6 +16,7 @@
   .user-info {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     text-align: center;
 
     .avatar {
