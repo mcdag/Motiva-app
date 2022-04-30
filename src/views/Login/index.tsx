@@ -1,12 +1,15 @@
 import { TextField } from '@mui/material';
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Button from '../../components/Button';
 import './styles.scss'
 
-function Login() {
-  let identifier = 'parent';
-  // identifier = 'child';
+interface IProps {
+  identifier: string;
+}
 
+function Login() {
+  const { identifier }:IProps = useParams();
 
   const [login, setLogin] = useState<string>('');
   const [password, setPassword] = useState<string>('');

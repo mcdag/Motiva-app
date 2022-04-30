@@ -4,6 +4,18 @@ import apiBack from './api';
 
 export class RewardsService {
 
+  static async createReward(reward:Reward
+    ): Promise<AxiosResponse> {
+      const response = await apiBack.post(
+        `awards`,
+        reward,
+        {
+          validateStatus: status => [201, 404].includes(status),
+        },
+      );
+      return response;
+    }
+
   static async importAllRewards(childId:string
   ): Promise<AxiosResponse> {
     const response = await apiBack.get(
