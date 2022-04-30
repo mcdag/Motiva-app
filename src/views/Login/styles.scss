@@ -23,6 +23,12 @@
     margin: 2% 0;
   }
 
+  .invalid-auth {
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
+  }
+
   .text-fields {
     display: flex;
     flex-direction: column;

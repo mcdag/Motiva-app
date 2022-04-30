@@ -1,9 +1,9 @@
-import { Button, IconButton } from '@mui/material';
+import { IconButton } from '@mui/material';
 import AdultIcon from '../../assets/adult-icon.svg';
 import KidIcon from '../../assets/kid-icon.svg';
 import './styles.scss';
 
-function choseLogin() {
+function chooseLogin() {
   return (
     <div className='login-parent-child-container'>
       <div className='parent-login'>
@@ -28,4 +28,4 @@ function choseLogin() {
   );
 }
 
-export default choseLogin;
+export default chooseLogin;

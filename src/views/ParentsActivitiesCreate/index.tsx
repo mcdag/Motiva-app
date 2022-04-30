@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { weekDays } from '../../global/constants';
 import CoinIcon from '../../assets/coin.svg';
 import WarningIcon from '../../assets/warning.svg';
@@ -7,6 +7,8 @@ import Button from '../../components/Button';
 import UserInfo from '../../components/UserInfo';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { TasksService } from '../../services/TasksService';
+import { Day, Task } from '../../interfaces/Task';
 import './styles.scss';
 
 interface IWeekDay {
@@ -20,6 +22,23 @@ function ParentsActivitiesCreate() {
   const [selectedDays, setSelectedDays] = useState<string[]>([]);
   const [times, setTimes] = useState('');
   const [period, setPeriod] = useState('Semanal');
+
+  const handleClickSubmit = async () => {
+    const week: Day[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+    const days: Day[] = selectedDays.map((day) => {
+      return week[parseInt(day)]
+    });
+  
+    const task: Task = {
+      name: taskName,
+      coins: parseInt(reward),
+      days: days,
+      createdById: '',
+      createdForId: '',
+      type: 'daily'
+    }
+    await TasksService.createTask(task);
+  }
 
   const handleChange = (event: SelectChangeEvent) => {
     setPeriod(event.target.value);
@@ -38,7 +57,6 @@ function ParentsActivitiesCreate() {
 
   return (
     <UserInfo>
-
       <section className="activities-create">
         <div className='close-button'>
           <button><img src={CloseIcon} alt="" /></button>
@@ -97,8 +115,16 @@ function ParentsActivitiesCreate() {
 
         </div>
 
-        <Button type="submit" onClick={() => {}} text="Salvar" />
-      </section>
+      <div className='footer-warning'>
+        <img className='warning-icon' src={WarningIcon} alt="icone de alerta" />
+        <p>
+          Atividades criadas aqui serão reconhecidas como atividades para a criança tentar realizar sozinha
+        </p>
+
+      </div>
+
+      <Button type="submit" onClick={handleClickSubmit} text="Salvar" />
+    </section>
     </UserInfo>
   );
 };

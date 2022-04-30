@@ -1,6 +1,8 @@
 import { TextField } from '@mui/material';
 import { useState } from 'react';
 import Button from '../../components/Button';
+import { User } from '../../interfaces/User';
+import { UserService } from '../../services/UserService';
 import './styles.scss'
 
 function Register() {
@@ -19,7 +21,7 @@ function Register() {
   };
 
   const handleChangeTelephoneNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUsername(event.target.value);
+    setTelephoneNumber(event.target.value);
   };
 
   const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,8 +32,14 @@ function Register() {
     setPassword(event.target.value);
   };
 
-  const handleClick = (() => {
-
+  const handleClick = (async () => {
+    const user: User = {
+      name: name,
+      email: email,
+      phone: telephoneNumber,
+      password: password,
+    }
+    await UserService.createUser(user);
   })
 
   return (
