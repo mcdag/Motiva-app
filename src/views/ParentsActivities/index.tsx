@@ -1,15 +1,16 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import ParentsActivitiesList from '../../components/ParentsActivitiesList';
-import { Activity, ActivityList } from '../../interfaces/Activities';
-import { ParentsService } from '../../services/ParentsService';
+import { Tasks } from '../../interfaces/Task';
+import { TasksService } from '../../services/TasksService';
 
 function ParentsActivities() {
+  const [list, setList] = useState<Tasks>();
   async function get() {
-    const response = await ParentsService.importChildActivities();
-    //now is importing the users to test
+    const today = false;
+    const response = await TasksService.getTasks(today);
     if (response.status === 200) {
       const { data } = response;
-      console.log('TÁ AQUI O QUE VOCÊ PEDIU JOHNNY: ', data);
+      setList(data);
     }
   }
 
@@ -17,21 +18,8 @@ function ParentsActivities() {
     get();
   }, []);
 
-  const aloneList: Activity[] = [
-    {id:1, name: 'Arrumar a cama', status: false },
-    {id:2, name: 'Escovar os dentes', status: true },
-    {id:3, name: 'Estudar para a prova', status: false },
-  ];
-  const parentList: Activity[] = [
-    {id:4, name: 'Contar como foi o dia', status: false },
-    {id:5, name: 'yyy', status: false },
-    {id:6, name: 'zzz', status: false },
-    {id:7, name: 'www', status: false }
-  ];
-  const list: ActivityList = {alone:aloneList, parent:parentList};
-
   return (
-    <ParentsActivitiesList title={'Atividades'} checkbox={false} addButton={true} list={list} />
+    <ParentsActivitiesList title={'Atividades'} checkbox={false} addButton={true} list={list as Tasks} />
   );
 }
 

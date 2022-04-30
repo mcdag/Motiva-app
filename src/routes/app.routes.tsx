@@ -14,8 +14,8 @@ import ChildRewards from '../views/ChildRewards';
 import Route from './Route';
 import ParentsActivitiesCreate from '../views/ParentsActivitiesCreate';
 import Register from '../views/Register';
-import choseLogin from '../views/choseLogin';
 import RewardRegister from '../views/RewardRegister';
+import chooseLogin from '../views/chooseLogin';
 
 const AppRoutes: React.FC<RouteProps> = () => {
   const { path } = useRouteMatch();
@@ -27,7 +27,7 @@ const AppRoutes: React.FC<RouteProps> = () => {
         <Route path={`${path}/parents-rewards`} component={ParentsRewards} exact/>
         <Route path={`${path}/child-activities`} component={ChildActivities} exact/>
         <Route path={`${path}/activities-instructions`} component={ActivityInstructions} exact/>
-        <Route path={`${path}/chose-login`} component={choseLogin} exact/>
+        <Route path={`${path}/choose-login`} component={chooseLogin} exact/>
         <Route path={`${path}/child-rewards`} component={ChildRewards} />
         <Route path={`${path}/login`} component={Login} />
         <Route path={`${path}/register`} component={Register} />

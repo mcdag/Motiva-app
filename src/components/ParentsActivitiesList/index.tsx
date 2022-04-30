@@ -1,19 +1,19 @@
+import { useState } from 'react';
 import SearchBar from '../../components/SearchBar';
 import { Checkbox, Divider, IconButton, List, ListItem } from '@mui/material';
 import TrashCanIcon from '../../assets/trash-can-icon.svg';
 import AddIcon from '../../assets/add-icon.svg';
-import UserInfo from '../../components/UserInfo';
-import { useEffect, useState } from 'react';
 import ConfirmationDialog from '../../components/ConfirmationDialog';
-import { ActivityList } from '../../interfaces/Activities';
+import { Task, Tasks } from '../../interfaces/Task';
 import './styles.scss';
+import { TasksService } from '../../services/TasksService';
 
 
 interface Props {
   title: string;
   checkbox: boolean;
   addButton: boolean;
-  list: ActivityList;
+  list: Tasks;
 }
 
 function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
@@ -23,33 +23,38 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
     setOpenTrashDialog(!openTrashDialog);
   };
 
-  const oldChecksAlone = list.alone.map((element) => element.status);
-  const oldChecksParents = list.parent.map((element) => element.status);
+  const oldChecksDailyActivities = list.dailyTasks.map((element) => element.status as boolean);
+  const oldChecksRelationshipActivities = list.relationshipTasks.map((element) => element.status as boolean);
 
-  const [checksAlone, setChecksAlone] = useState<boolean[]>(oldChecksAlone);
-  const [checksParent, setChecksParent] = useState<boolean[]>(oldChecksParents);
+  const [checksDailyActivities, setChecksDailyActivities] = useState<boolean[]>(oldChecksDailyActivities);
+  const [checksRelationshipActivities, setChecksRelationshipActivities] = useState<boolean[]>(oldChecksRelationshipActivities);
 
-  const handleChecksAlone = (index: number) => {
-    const newChecks = checksAlone;
+  const handleChecksDailyActivities = async (index: number, task: Task) => {
+    task.status = !task.status;
+    await TasksService.updateTask(task.id as string, task)
+
+    const newChecks = checksDailyActivities;
     newChecks[index] = !(newChecks[index]);
-    setChecksAlone([...newChecks]);
+    setChecksDailyActivities([...newChecks]);
   };
 
-  const handleChecksParent = (index: number) => {
-    const newChecks = checksParent;
+  const handleChecksRelationshipActivities = async (index: number, task: Task) => {
+    task.status = !task.status;
+    await TasksService.updateTask(task.id as string, task)
+    
+    const newChecks = checksRelationshipActivities;
     newChecks[index] = !(newChecks[index]);
-    setChecksParent([...newChecks]);
+    setChecksRelationshipActivities([...newChecks]);
   };
 
   return (
     < >
-      {/* <UserInfo /> */}
       <div className='parents-list'> 
         <text className='activities-title'> {title} </text>
         <SearchBar />
         <List className='activities-list' sx={{width: '135%'}} component='nav' aria-label='list'>
         <p className='activities-subtitle'> Para a criança tentar sozinha</p>
-        {list.alone.map((activity, index) =>
+        {list.dailyTasks.map((activity, index) =>
             <div>
               <ListItem className='activity'>
                 <text> {activity.name} </text>
@@ -61,8 +66,8 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
                     '&.Mui-checked': {
                       color: '#fa971d',
                     },
-                  }} className='check-box' checked={checksAlone[index]}
-                  onClick={() => handleChecksAlone(index)}/>
+                  }} className='check-box' checked={checksDailyActivities[index]}
+                  onClick={() => handleChecksDailyActivities(index, activity)}/>
                   :
                   <><IconButton className='icon' onClick={handleClickOpenTrashDialog}>
                     <img src={TrashCanIcon} alt='Lata de lixo' />
@@ -77,7 +82,7 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
         </List>
         <List className='activities-list' sx={{width: '135%'}} component='nav' aria-label='list'>
         <div className='activities-subtitle'> Para realizar com a criança</div>
-        {list.parent.map((activity, index) =>
+        {list.relationshipTasks.map((activity, index) =>
             <div>
               <ListItem className='activity'>
                 <text> {activity.name} </text>
@@ -89,8 +94,8 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
                     '&.Mui-checked': {
                       color: '#fa971d',
                     },
-                  }} className='check-box' checked={checksParent[index]}
-                  onClick={() => handleChecksParent(index)}/>
+                  }} className='check-box' checked={checksRelationshipActivities[index]}
+                  onClick={() => handleChecksRelationshipActivities(index, activity)}/>
                   :
                   <><IconButton className='icon' onClick={handleClickOpenTrashDialog}>
                     <img src={TrashCanIcon} alt='Lata de lixo' />
