@@ -1,6 +1,12 @@
 @import '../../global//refs.scss';
 
 .register-child {
+  margin: auto;
+  max-width: 500px;
+  padding: 25px;
+  width: 100%;
+  box-sizing: border-box;
+
   h1 {
     color: $orange;
     font-size: 34px;

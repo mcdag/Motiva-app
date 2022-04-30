@@ -1,6 +1,11 @@
 @import '../../global//refs.scss';
 
 .select-child {
+  width: 100%;
+  max-width: 500px;
+  padding: 25px;
+  margin: auto;
+
   h1 {
     color: $orange;
     font-size: 34px;

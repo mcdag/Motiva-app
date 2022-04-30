@@ -1,17 +1,19 @@
 @import '../../global//refs.scss';
 
 .general-login-container {
-  min-height: 100vh;
-  margin-top: 17%;
-  margin-left: 10%;
-  width: 80%;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  height: 100vh;
+  padding: 25px;
+  box-sizing: border-box;
 
   .title {
     color: $darkOrange;
     font-weight: 700;
     font-size: 34px;
     line-height: 43px;
-    margin-bottom: 13%;
+    margin-bottom: 30px;
   }
 
   .subtitle {
@@ -24,8 +26,8 @@
   .text-fields {
     display: flex;
     flex-direction: column;
-    margin-top: 32%;
-    margin-bottom: 5%;
+    margin-top: 80px;
+    margin-bottom: 15px;
   }
 
   .forgot-password {
