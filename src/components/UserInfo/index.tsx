@@ -15,7 +15,7 @@ function UserInfo({ children }: IProps) {
           <IconButton className='avatar'>
             <img src={ExampleAvatar} alt="Avatar da criança" />
           </IconButton>
-          <text className='name'> José Carlos </text>
+          <p className='name'> José Carlos </p>
         </div>
       </div>
       {children}

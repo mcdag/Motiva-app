@@ -3,19 +3,29 @@ import Button from '../../components/Button';
 import CoinIcon from '../../assets/coin.svg';
 import CloseIcon from '../../assets/close-icon.svg';
 
+import { RewardsService } from '../../services/Rewards';
 
 import './styles.scss'
 import UserInfo from '../../components/UserInfo';
+import { Reward } from '../../interfaces/Rewards';
+import { useParams } from 'react-router-dom';
 
 function RewardRegister() {
-  let identifier = 'parent';
-  // identifier = 'child';
 
   const [rewardTitle, setRewardTitle] = useState('');
   const [reward, setReward] = useState('');
 
   const handleClick = (() => {
-
+    //Mudar as duas linhas abaixo para pegar essas informações de um context
+    const childId = "37e393a5-3065-41db-a5fa-7ed5c33b80d2";
+    const parentId = "fd30edfd-263f-442c-8458-a2322e11e1e6";
+    const newReward:Reward = {
+      name: rewardTitle,
+      cost: +reward,
+      createdById: parentId,
+      createdForId: childId,
+    }
+    const response = RewardsService.createReward(newReward);
   })
 
   return (

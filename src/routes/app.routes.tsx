@@ -36,7 +36,7 @@ const AppRoutes: React.FC<RouteProps> = () => {
         <Route path={`${path}/activities-instructions`} component={ActivityInstructions} exact/>
         <Route path={`${path}/chose-login`} component={choseLogin} exact/>
         <Route path={`${path}/child-rewards`} component={ChildRewards} />
-        <Route path={`${path}/login`} component={Login} />
+        <Route path={`${path}/login/:identifier`} component={Login} />
         <Route path={`${path}/register`} component={Register} />
         <Route path={`${path}/reward-register`} component={RewardRegister} />
 
