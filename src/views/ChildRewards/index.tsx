@@ -1,22 +1,31 @@
 import ChildHeader  from '../../components/ChildHeader';
 import ChildReward from '../../components/ChildReward';
+import { RewardsService } from '../../services/Rewards';
 
+import { useEffect, useState } from 'react';
 import CoinIcon from '../../assets/icon-icon.svg';
 import './styles.scss';
+import { Reward } from '../../interfaces/Rewards';
 
-interface Reward {
-  id: number;
-  name: string;
-  value: number;
-}
 
 function ChildRewards() {
-    const rewards: Reward[] = [
-      {id:1, name: 'Ir para o cinema', value: 350 },
-      {id:2, name: 'Ir paar o estádio de futebol', value: 300 },
-      {id:3, name: 'Jogar Xbox por 2 horas', value: 250 },
-      {id:3, name: 'Jogar Xbox por 1 horas', value: 125 },
-    ];
+
+    const [rewards, setRewards] = useState<Reward[]>([]);
+
+    async function get() {
+      //trocar essa linha de childId para buscar do context
+      const childId = "e8d43690-a6ce-4b91-ba17-c082ed290f71";
+      const response = await RewardsService.importAllRewards(childId);
+      if (response.status === 200) {
+        const { data } = response;
+        setRewards(data);
+      }   
+    }
+  
+    useEffect(() => {
+      get();
+    }, []);
+
 
     return (
       <div className='child-rewardss-container'>
@@ -28,7 +37,7 @@ function ChildRewards() {
           </div>
           <div className='child-rewards'>
             {rewards.map((reward, index) => 
-              <ChildReward rewardName={reward.name} rewardValue={reward.value}/>
+              <ChildReward rewardName={reward.name} rewardValue={reward.cost}/>
             )
             }
           </div>
