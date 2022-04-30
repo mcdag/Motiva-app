@@ -2,6 +2,7 @@ import SearchBar from '../../components/SearchBar';
 import { Divider, IconButton, List, ListItem } from '@mui/material';
 import TrashCanIcon from '../../assets/trash-can-icon.svg';
 import RewardIcon from '../../assets/coin-2-icon.svg';
+import CoinIcon from '../../assets/coin-4-icon.svg';
 import AddIcon from '../../assets/add-icon.svg';
 import UserInfo from '../../components/UserInfo';
 import { useState } from 'react';
@@ -9,11 +10,12 @@ import ConfirmationDialog from '../../components/ConfirmationDialog';
 import FormDialog from '../FormDialog';
 import './styles.scss';
 import WithNav from '../WithNavHeader';
+import { Reward } from '../../interfaces/Rewards';
 
 
 interface Props {
   title: string;
-  list: string[];
+  list: Reward[];
 }
 
 function ParentsRewardsList({title, list}: Props) {
@@ -29,6 +31,8 @@ function ParentsRewardsList({title, list}: Props) {
     setOpenRewardsDialog(!openRewardsDialog);
   };
 
+  console.log(list)
+
   return (
     <WithNav>
       <div className='main-content'>
@@ -37,9 +41,13 @@ function ParentsRewardsList({title, list}: Props) {
           <SearchBar />
           <List className='rewards-list' sx={{width: '135%'}} component='nav' aria-label='list'>
           {list.map((rewards, index) =>
-              <div>
+              <div key={index}>
                 <ListItem className='reward'>
-                  <text> {rewards} </text>      
+                  <div className='coin-reward'>
+                    <img src={CoinIcon} alt="Icone da moeda" />
+                    <p>{rewards.cost}</p>
+                  </div>
+                  <p className='reward-title'> {rewards.name} </p>         
                   <><IconButton className='icon' onClick={handleClickOpenTrashDialog}>
                     <img src={TrashCanIcon} alt='Lata de lixo' />
                   </IconButton>

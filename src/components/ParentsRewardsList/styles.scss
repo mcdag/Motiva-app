@@ -8,7 +8,7 @@
     align-items: center;
     flex-direction: column;
     font: 'Outfit';
-  
+
     .rewards-title {
       color: $orange;
       font-weight: bold;
@@ -30,6 +30,17 @@
         flex-direction: row;
         justify-content: space-between;
         margin-top: 4%;
+
+        .coin-reward {
+          @include flex(center, center, row);
+          @include style-font(light, 14pt);
+          img {
+            margin-right: 10px;
+          }
+        }
+        .reward-title {
+          max-width: 200px;
+        }
       }
     }
   }

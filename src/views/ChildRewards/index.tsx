@@ -15,7 +15,7 @@ function ChildRewards() {
     async function get() {
       //trocar essa linha de childId para buscar do context
       const childId = "e8d43690-a6ce-4b91-ba17-c082ed290f71";
-      const response = await RewardsService.importAllRewards(childId);
+      const response = await RewardsService.importAllRewardsByChild(childId);
       if (response.status === 200) {
         const { data } = response;
         setRewards(data);

@@ -16,10 +16,10 @@ export class RewardsService {
       return response;
     }
 
-  static async importAllRewards(childId:string
+  static async importAllRewardsByChild(childId:string
   ): Promise<AxiosResponse> {
     const response = await apiBack.get(
-      `awards/${childId}`,
+      `awards?createdForId=${childId}`,
       {
         validateStatus: status => [200, 404].includes(status),
       },
