@@ -1,0 +1,9 @@
+@import '../../global/refs.scss';
+
+.base-no-nav {
+  max-width: 500px;
+  height: 100vh;
+  margin: auto;
+  border-left: 1px solid $gray;
+  border-right: 1px solid $gray;
+}

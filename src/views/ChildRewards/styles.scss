@@ -2,6 +2,9 @@
 
 .child-rewardss-container {
     width: 100%;
+    max-width: 500px;
+    margin: auto;
+    
     .body {
         .body-header {
             @include flex(flex-start, center, column);

@@ -4,7 +4,7 @@ import CoinIcon from '../../assets/coin.svg';
 import WarningIcon from '../../assets/warning.svg';
 import CloseIcon from '../../assets/close-icon.svg';
 import Button from '../../components/Button';
-import InputLabel from '@mui/material/InputLabel';
+import UserInfo from '../../components/UserInfo';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import './styles.scss';
@@ -37,66 +37,69 @@ function ParentsActivitiesCreate() {
   }
 
   return (
-    <section className="activities-create">
-      <div className='close-button'>
-        <button><img src={CloseIcon} alt="" /></button>
-      </div>
+    <UserInfo>
 
-      <label className='activity-name'>
-        <p className='title'>Nome da Atividade</p>
-        <input placeholder='Escovar os dentes' value={taskName} onChange={(e) => setTaskName(e.target.value)} />
-      </label>
-
-      <div className="frequency">
-        <p className='title'>Frequência</p>
-        <div className='week-days'>
-          {weekDays.map((day: IWeekDay) => (
-            <button
-              key={day.id}
-              onClick={() => handleClick(day)}
-              className={`week-day-button ${selectedDays.indexOf(day.id) !== -1 ? 'active' : ''}`}
-            >
-              <p>{day.initials}</p>
-            </button>
-          ))}
+      <section className="activities-create">
+        <div className='close-button'>
+          <button><img src={CloseIcon} alt="" /></button>
         </div>
 
-        <label className='times'>
-          <p className="subtitle">Repetir a cada:</p>
-          <div className="">
-            <input placeholder='0' type="number" className='number' value={times} onChange={(e) => setTimes(e.target.value)} />
-            <Select
-              labelId="select"
-              value={period}
-              onChange={handleChange}
-              autoWidth
-            >
-              <MenuItem value={"Semanal"}>Semanal</MenuItem>
-              <MenuItem value={"Quinzenal"}>Quinzenal</MenuItem>
-              <MenuItem value={"Mensal"}>Mensal</MenuItem>
-            </Select>
+        <label className='activity-name'>
+          <p className='title'>Nome da Atividade</p>
+          <input placeholder='Escovar os dentes' value={taskName} onChange={(e) => setTaskName(e.target.value)} />
+        </label>
+
+        <div className="frequency">
+          <p className='title'>Frequência</p>
+          <div className='week-days'>
+            {weekDays.map((day: IWeekDay) => (
+              <button
+                key={day.id}
+                onClick={() => handleClick(day)}
+                className={`week-day-button ${selectedDays.indexOf(day.id) !== -1 ? 'active' : ''}`}
+              >
+                <p>{day.initials}</p>
+              </button>
+            ))}
+          </div>
+
+          <label className='times'>
+            <p className="subtitle">Repetir a cada:</p>
+            <div className="">
+              <input placeholder='0' type="number" className='number' value={times} onChange={(e) => setTimes(e.target.value)} />
+              <Select
+                labelId="select"
+                value={period}
+                onChange={handleChange}
+                autoWidth
+              >
+                <MenuItem value={"Semanal"}>Semanal</MenuItem>
+                <MenuItem value={"Quinzenal"}>Quinzenal</MenuItem>
+                <MenuItem value={"Mensal"}>Mensal</MenuItem>
+              </Select>
+            </div>
+          </label>
+        </div>
+
+        <label className='reward-name'>
+          <p className='title'>Recompensa de moedas</p>
+          <div className='input-icon'>
+            <img className='coin-icon' src={CoinIcon} alt="icone de moeda" />
+            <input placeholder='10' className='with-icon' value={reward} onChange={(e) => setReward(e.target.value)} />
           </div>
         </label>
-      </div>
 
-      <label className='reward-name'>
-        <p className='title'>Recompensa de moedas</p>
-        <div className='input-icon'>
-          <img className='coin-icon' src={CoinIcon} alt="icone de moeda" />
-          <input placeholder='10' className='with-icon' value={reward} onChange={(e) => setReward(e.target.value)} />
+        <div className='footer-warning'>
+          <img className='warning-icon' src={WarningIcon} alt="icone de alerta" />
+          <p>
+            Atividades criadas aqui serão reconhecidas como atividades para a criança tentar realizar sozinha
+          </p>
+
         </div>
-      </label>
 
-      <div className='footer-warning'>
-        <img className='warning-icon' src={WarningIcon} alt="icone de alerta" />
-        <p>
-          Atividades criadas aqui serão reconhecidas como atividades para a criança tentar realizar sozinha
-        </p>
-
-      </div>
-
-      <Button type="submit" onClick={() => {}} text="Salvar" />
-    </section>
+        <Button type="submit" onClick={() => {}} text="Salvar" />
+      </section>
+    </UserInfo>
   );
 };
 

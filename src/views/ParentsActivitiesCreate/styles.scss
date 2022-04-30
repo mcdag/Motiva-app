@@ -2,8 +2,12 @@
 
 .activities-create {
   width: 100%;
+  max-width: 500px;
+  margin: auto;
   height: 100%;
   @include flex(unset, center, column);
+  padding: 25px;
+  box-sizing: border-box;
 
   .close-button {
     @include flex(flex-end, center, row);

@@ -2,7 +2,7 @@ import SearchBar from '../../components/SearchBar';
 import { Checkbox, Divider, IconButton, List, ListItem } from '@mui/material';
 import TrashCanIcon from '../../assets/trash-can-icon.svg';
 import AddIcon from '../../assets/add-icon.svg';
-import UserInfo from '../../components/UserInfo';
+import WithNav from '../WithNavHeader';
 import { useEffect, useState } from 'react';
 import ConfirmationDialog from '../../components/ConfirmationDialog';
 import { ActivityList } from '../../interfaces/Activities';
@@ -42,17 +42,16 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
   };
 
   return (
-    < >
-      {/* <UserInfo /> */}
+    <WithNav>
       <div className='parents-list'> 
-        <text className='activities-title'> {title} </text>
+        <p className='activities-title'> {title} </p>
         <SearchBar />
         <List className='activities-list' sx={{width: '135%'}} component='nav' aria-label='list'>
         <p className='activities-subtitle'> Para a criança tentar sozinha</p>
         {list.alone.map((activity, index) =>
             <div>
               <ListItem className='activity'>
-                <text> {activity.name} </text>
+                <p> {activity.name} </p>
                 {
                 checkbox ? 
                   <Checkbox sx={{
@@ -80,7 +79,7 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
         {list.parent.map((activity, index) =>
             <div>
               <ListItem className='activity'>
-                <text> {activity.name} </text>
+                <p> {activity.name} </p>
                 {
                 checkbox ? 
                   <Checkbox sx={{
@@ -106,16 +105,13 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
       </div>
       <div className='button-activities-padding'/>
       <div className='button-activities'>
-      {
-      addButton ? 
-      <IconButton sx={{marginLeft: 'auto'}}>
-        <img src={AddIcon} alt='Adicionar' />
-      </IconButton>
-      :
-      <></>
-      }
+        {addButton && 
+          <IconButton sx={{marginLeft: 'auto'}}>
+            <img src={AddIcon} alt='Adicionar' />
+          </IconButton>
+        }
       </div>
-    </>
+    </WithNav>
   );
 }
 

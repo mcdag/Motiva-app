@@ -1,0 +1,42 @@
+@import '../../global//refs.scss';
+
+.select-child {
+  width: 100%;
+  max-width: 500px;
+  padding: 25px;
+  margin: auto;
+
+  h1 {
+    color: $orange;
+    font-size: 34px;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-weight: $regular;
+    color: #000;
+    font-size: 25px
+  }
+
+  .children-list {
+    flex-wrap: wrap;
+    max-width: 350px;
+    width: 100%;
+    margin: 0 auto 40px auto;
+    @include flex(space-between, center, row, wrap);
+
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      @include flex(center, center, column);
+      margin: 10px;
+
+      p {
+        font-weight: $medium;
+        font-size: 18px;
+        margin: 4px 0 0 0;
+      }
+    }
+  }
+}

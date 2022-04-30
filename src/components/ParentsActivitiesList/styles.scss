@@ -6,6 +6,8 @@
   flex-direction: column;
   font: 'Outfit';
   width: 100%;
+  max-width: 500px;
+  margin: auto;
 
   .activities-title {
     color: $orange;
@@ -40,9 +42,9 @@
 }
 
 .button-activities {
-  width: 90%;
   display: flex;
   justify-content: flex-end;
   position: fixed;
   bottom: 80px;
+  right: 40px;
 }
