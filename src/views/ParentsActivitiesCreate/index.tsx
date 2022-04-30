@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { weekDays } from '../../global/constants';
 import CoinIcon from '../../assets/coin.svg';
 import WarningIcon from '../../assets/warning.svg';
+import CloseIcon from '../../assets/close-icon.svg';
 import Button from '../../components/Button';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -37,6 +38,10 @@ function ParentsActivitiesCreate() {
 
   return (
     <section className="activities-create">
+      <div className='close-button'>
+        <button><img src={CloseIcon} alt="" /></button>
+      </div>
+
       <label className='activity-name'>
         <p className='title'>Nome da Atividade</p>
         <input placeholder='Escovar os dentes' value={taskName} onChange={(e) => setTaskName(e.target.value)} />
