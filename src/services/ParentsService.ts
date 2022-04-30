@@ -1,8 +1,8 @@
 import { AxiosResponse } from 'axios';
 import apiBack from './api';
 
-export class ParentsActivitiesService {
-  static async importActivities(
+export class ParentsService {
+  static async importChildActivities (
   ): Promise<AxiosResponse> {
     const response = await apiBack.get(
       `users`,

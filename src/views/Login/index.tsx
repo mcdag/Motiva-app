@@ -1,6 +1,9 @@
-import { TextField } from '@mui/material';
+import { Alert, TextField } from '@mui/material';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Button from '../../components/Button';
+import { Auth, User } from '../../interfaces/User';
+import { UserService } from '../../services/UserService';
 import './styles.scss'
 
 function Login() {
@@ -8,28 +11,50 @@ function Login() {
   // identifier = 'child';
 
 
-  const [login, setLogin] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [error, setError] = useState<boolean>(false);
+  const [user, setUser] = useState<User>();
 
-  const handleChangeLogin = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setLogin(event.target.value);
+  const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
   };
 
   const handleChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
 
-  const handleClick = (() => {
-
+  const handleClick = (async () => {
+    const login: Auth = {
+      email: email,
+      password: password,
+    }
+    const response = await UserService.getLogin(login);
+    if(response.status !== 200){
+      setError(true)
+    }else {
+      setUser(response.data)
+    }
   })
+
+  if(user) {
+    <Link to={{pathname: '/parents-day-activities' }}> </Link>
+  }
 
   return (
     <div className='general-login-container'>
       <p className='title'>Faça o login</p>
       <p className='subtitle'> Bem-vindo de volta,</p>
       <p className='subtitle'> Nós sentimos sua falta </p>
+      <div className='invalid-auth'>
+        {
+          error ?
+          <Alert sx={{width: '100%', justifyContent: 'center'}} severity='error'>Email ou senha inválidos</Alert> :
+          <></>
+        }
+      </div>
       <div className='text-fields'>
-        <TextField sx={{marginBottom: '5%'}} className='text-field' label='Login' variant='outlined' onChange={handleChangeLogin} />
+        <TextField sx={{marginBottom: '5%'}} className='text-field' label='Email' variant='outlined' onChange={handleChangeEmail} />
         <TextField className='text-field' label='Senha' variant='outlined' onChange={handleChangePassword} />
       </div>
       <div className='forgot-password'>

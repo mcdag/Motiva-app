@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import ParentsActivitiesList from '../../components/ParentsActivitiesList';
 import { Activity, ActivityList } from '../../interfaces/Activities';
-import { ParentsActivitiesService } from '../../services/ParentesActivitiesService';
+import { ParentsService } from '../../services/ParentsService';
 
 function ParentsActivities() {
   async function get() {
-    const response = await ParentsActivitiesService.importActivities();
+    const response = await ParentsService.importChildActivities();
     //now is importing the users to test
     if (response.status === 200) {
       const { data } = response;
