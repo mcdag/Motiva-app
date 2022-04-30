@@ -32,7 +32,6 @@ const AppRoutes: React.FC<RouteProps> = () => {
   return (
     <Router>
       <Switch>
-        <Route path={`${path}/login-parent-child`} component={LoginParentChild}/>
         <Route path={`${path}/parents-activities-create`} component={ParentsActivitiesCreate} />
         <Route path={`${path}/select-child`} component={SelectChild} />
         <Route path={`${path}/register-child`} component={RegisterChild} />
