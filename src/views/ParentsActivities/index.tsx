@@ -4,7 +4,12 @@ import { Tasks } from '../../interfaces/Task';
 import { TasksService } from '../../services/TasksService';
 
 function ParentsActivities() {
-  const [list, setList] = useState<Tasks>();
+  const [list, setList] = useState<Tasks>(
+  {
+    dailyTasks: [],
+    relationshipTasks: [],
+  }
+  );
   async function get() {
     const today = false;
     const response = await TasksService.getTasks(today);
@@ -14,9 +19,9 @@ function ParentsActivities() {
     }
   }
 
-  // useEffect(() => {
-  //   get();
-  // }, []);
+  useEffect(() => {
+    get();
+  }, []);
 
   return (
     <ParentsActivitiesList title={'Atividades'} checkbox={false} addButton={true} list={list as Tasks} />

@@ -15,8 +15,8 @@ function ChildActivities() {
     const response = await TasksService.getTasks(today);
     if (response.status === 200) {
       const { data } = response;
-      setDailyActivities(data.dailyTasks);
-      setRelationshipActivities(data.relationshipTasks);
+      setDailyActivities(data?.dailyTasks);
+      setRelationshipActivities(data?.relationshipTasks);
     }
   }
 

@@ -3,7 +3,6 @@ import { Switch, RouteProps, useRouteMatch, Redirect, BrowserRouter as Router } 
 import {
   Home,
   ParentsActivitiesCreate,
-  SelectChild,
   Login,
 } from '../views';
 import ChildActivities from '../views/ChildActivities';
@@ -19,6 +18,7 @@ import Route from './Route';
 import Register from '../views/Register';
 import RewardRegister from '../views/RewardRegister';
 import chooseLogin from '../views/chooseLogin';
+import SelectChild from '../views/SelectChild';
 
 const AppRoutes: React.FC<RouteProps> = () => {
   const { path } = useRouteMatch();

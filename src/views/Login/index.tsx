@@ -1,6 +1,6 @@
 import { Alert, TextField } from '@mui/material';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Button from '../../components/Button';
 import { Auth, User } from '../../interfaces/User';
 import { UserService } from '../../services/UserService';
@@ -13,7 +13,7 @@ interface IProps {
 function Login() {
   const { identifier }:IProps = useParams();
 
-  const [login, setLogin] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<boolean>(false);
   const [user, setUser] = useState<User>();

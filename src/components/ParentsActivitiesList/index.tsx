@@ -1,10 +1,9 @@
-import { useState } from 'react';
 import SearchBar from '../../components/SearchBar';
 import { Checkbox, Divider, IconButton, List, ListItem } from '@mui/material';
 import TrashCanIcon from '../../assets/trash-can-icon.svg';
 import AddIcon from '../../assets/add-icon.svg';
 import WithNav from '../WithNavHeader';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ConfirmationDialog from '../../components/ConfirmationDialog';
 import { Task, Tasks } from '../../interfaces/Task';
 import './styles.scss';
@@ -56,7 +55,7 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
         <SearchBar />
         <List className='activities-list' sx={{width: '135%'}} component='nav' aria-label='list'>
         <p className='activities-subtitle'> Para a criança tentar sozinha</p>
-        {list.dailyTasks.map((activity, index) =>
+        {list?.dailyTasks.map((activity, index) =>
             <div>
               <ListItem className='activity'>
                 <p> {activity.name} </p>
@@ -84,7 +83,7 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
         </List>
         <List className='activities-list' sx={{width: '135%'}} component='nav' aria-label='list'>
         <div className='activities-subtitle'> Para realizar com a criança</div>
-        {list.relationshipTasks.map((activity, index) =>
+        {list?.relationshipTasks.map((activity, index) =>
             <div>
               <ListItem className='activity'>
                 <p> {activity.name} </p>
