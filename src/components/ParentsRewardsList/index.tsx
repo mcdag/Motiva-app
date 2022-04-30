@@ -1,5 +1,5 @@
 import SearchBar from '../../components/SearchBar';
-import AppLayout from '../../components/AppLayout';
+import WithNav from '../../components/WithNav';
 import { Divider, IconButton, List, ListItem } from '@mui/material';
 import TrashCanIcon from '../../assets/trash-can-icon.svg';
 import RewardIcon from '../../assets/coin-2-icon.svg';

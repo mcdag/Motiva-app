@@ -4,18 +4,18 @@ import { Activity, ActivityList } from '../../interfaces/Activities';
 import { ParentsActivitiesService } from '../../services/ParentesActivitiesService';
 
 function ParentsActivities() {
-  async function get() {
-    const response = await ParentsActivitiesService.importActivities();
-    //now is importing the users to test
-    if (response.status === 200) {
-      const { data } = response;
-      console.log('TÁ AQUI O QUE VOCÊ PEDIU JOHNNY: ', data);
-    }
-  }
+  // async function get() {
+  //   const response = await ParentsActivitiesService.importActivities();
+  //   //now is importing the users to test
+  //   if (response.status === 200) {
+  //     const { data } = response;
+  //     console.log('TÁ AQUI O QUE VOCÊ PEDIU JOHNNY: ', data);
+  //   }
+  // }
 
-  useEffect(() => {
-    get();
-  }, []);
+  // useEffect(() => {
+  //   get();
+  // }, []);
 
   const aloneList: Activity[] = [
     {id:1, name: 'Arrumar a cama', status: false },

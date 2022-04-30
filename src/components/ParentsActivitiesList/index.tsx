@@ -43,16 +43,15 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
 
   return (
     < >
-      {/* <UserInfo /> */}
       <div className='parents-list'> 
-        <text className='activities-title'> {title} </text>
+        <p className='activities-title'> {title} </p>
         <SearchBar />
         <List className='activities-list' sx={{width: '135%'}} component='nav' aria-label='list'>
         <p className='activities-subtitle'> Para a criança tentar sozinha</p>
         {list.alone.map((activity, index) =>
             <div>
               <ListItem className='activity'>
-                <text> {activity.name} </text>
+                <p> {activity.name} </p>
                 {
                 checkbox ? 
                   <Checkbox sx={{
@@ -80,7 +79,7 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
         {list.parent.map((activity, index) =>
             <div>
               <ListItem className='activity'>
-                <text> {activity.name} </text>
+                <p> {activity.name} </p>
                 {
                 checkbox ? 
                   <Checkbox sx={{

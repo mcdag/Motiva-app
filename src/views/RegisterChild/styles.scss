@@ -1,0 +1,63 @@
+@import '../../global//refs.scss';
+
+.register-child {
+  h1 {
+    color: $orange;
+    font-size: 34px;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-weight: $regular;
+    color: #000;
+    font-size: 25px
+  }
+
+  .carousel {
+    width: 80%;
+    max-width: 400px;
+    margin: 30px auto 30px auto;
+    @include flex(center, center, row);
+
+    .slick-track {
+      display: flex;
+      align-items: center;
+    }
+
+    .slick-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .icon {
+        width: max-content !important;
+        border: 2px solid #000;
+      }
+      img {
+        width: 70px !important;
+      }
+    }
+
+    .arrow-button {
+      margin: 0 12px;
+      background-color: transparent;
+      border: none;
+    }
+
+    .carousel-content {
+      width: 100%;
+    }
+
+    .icon {
+      background-color: transparent;
+      border: none;
+      height: max-content;
+      padding: 0;
+      border-radius: 100%;
+
+      img {
+        width: 50px;
+        margin: auto;
+      }
+    }
+  }
+}

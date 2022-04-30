@@ -7,9 +7,8 @@
             @include flex(space-between, center, row);
     
             .title {
-                text-align: center;
+                align-self: center;
                 margin: 20px 0;
-                margin-left: calc($width/2 - 67px);
                 @include style-font(bold, 25pt);
             }
     
