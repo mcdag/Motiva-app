@@ -5,12 +5,15 @@ import RewardIcon from '../../assets/reward-icon.svg';
 import ProfileIcon from '../../assets/profile-icon.svg';
 import AvatarIcon from '../../assets/avatar-icon.svg';
 import './styles.scss';
+import { useRouteMatch } from 'react-router';
 
 interface IProps {
   children: React.ReactNode;
 }
 
 function WithNav({ children }: IProps) {
+  const { path } = useRouteMatch();
+  console.log(path)
   return (
     <div className="main-layout">
       <header>
@@ -23,10 +26,18 @@ function WithNav({ children }: IProps) {
         {children}
       </div>
       <nav className="main-nav">
-        <img className='nav-icon' src={HomeIcon} alt="Icone da home" />
-        <img className='nav-icon' src={TasksIcon} alt="Icone de tasks" />
-        <img className='nav-icon' src={RewardIcon} alt="Icone de recompensas" />
-        <img className='nav-icon' src={ProfileIcon} alt="Icone de perfil" />
+        <a className={path === `/app/parents-day-activities` ? 'selected' : ''} href={`${window.location.origin}/app/parents-day-activities`}>
+          <img className='nav-icon' src={HomeIcon} alt="Icone da home" />
+        </a>
+        <a className={path === `/app/parents-activities` ? 'selected' : ''} href={`${window.location.origin}/app/parents-activities`}>
+          <img className='nav-icon' src={TasksIcon} alt="Icone de tasks" />
+        </a>
+        <a className={path === `/parents-rewards` ? 'selected' : ''} href={`${window.location.origin}/app/parents-activities`}>
+          <img className='nav-icon' src={RewardIcon} alt="Icone de recompensas" />
+        </a>
+        <a className={path === `/app/profile` ? 'selected' : ''} href={`${window.location.origin}/app/profile`}>
+          <img className='nav-icon' src={ProfileIcon} alt="Icone de perfil" />
+        </a>
       </nav>
     </div>
   );

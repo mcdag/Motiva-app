@@ -1,6 +1,7 @@
 import { Alert, TextField } from '@mui/material';
 import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import Cookies from 'js-cookie'
+import { Link, Redirect, useParams } from 'react-router-dom';
 import Button from '../../components/Button';
 import { Auth, User } from '../../interfaces/User';
 import { UserService } from '../../services/UserService';
@@ -35,13 +36,12 @@ function Login() {
     if(response.status !== 200){
       setError(true)
     }else {
-      setUser(response.data)
+      setUser(response.data);
+      Cookies.set('name', response.data.name);
+      Cookies.set('id', response.data.id);
+      window.location.replace(`${window.location.origin}/app/select-child`);
     }
   })
-
-  if(user) {
-    <Link to={{pathname: '/parents-day-activities' }}> </Link>
-  }
 
   return (
     <div className='general-login-container'>
@@ -57,7 +57,7 @@ function Login() {
       </div>
       <div className='text-fields'>
         <TextField sx={{marginBottom: '5%'}} className='text-field' label='Email' variant='outlined' onChange={handleChangeEmail} />
-        <TextField className='text-field' label='Senha' variant='outlined' onChange={handleChangePassword} />
+        <TextField type="password" className='text-field' label='Senha' variant='outlined' onChange={handleChangePassword} />
       </div>
       <div className='forgot-password'>
         {
@@ -77,23 +77,29 @@ function Login() {
           <div className='parent'>
             <div className='parent-text'>
               <p className='button-text'>É uma criança ?</p>
-              <button className='button'>
-              Entre como uma
-              </button>
+              <a href={`${window.location.origin}/app/login/child`}>
+                <button className='button'>
+                  Entre como uma
+                </button>
+              </a>
             </div>
             <div className='parent-text'>
               <p className='button-text'>Não tem uma conta ?</p>
-              <button className='button'>
-              Registre-se agora
-              </button>
+              <a href={`${window.location.origin}/app/register`}>
+                <button className='button'>
+                  Registre-se agora
+                </button>
+              </a>
             </div>
           </div>
           :
           <div className='child'>
-            <p className='child-text'>É um reponsável ?</p>
-            <button className='button'>
-              Entre como um
-            </button>
+            <p className='child-text'>É um responsável ?</p>
+            <a href={`${window.location.origin}/app/login/parent`}>
+              <button className='button'>
+                Entre como um
+              </button>
+            </a>
           </div>
         }
       </div>

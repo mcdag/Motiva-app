@@ -45,5 +45,11 @@
     .nav-icon {
       margin: 0 20px;
     }
+
+    a {
+      &.selected {
+        margin-bottom: 2px solid white;;
+      }
+    }
   }
 }

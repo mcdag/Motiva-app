@@ -58,9 +58,11 @@ function Register() {
       </div>
       <div className='has-login'>
         <p className='button-text'>Já tem uma conta ?</p>
-        <button className='button'>
-            Faça login
-        </button>
+        <a href={`${window.location.origin}/app/login/parent`}>
+          <button className='button'>
+              Faça login
+          </button>
+        </a>
       </div>
     </div>
   );

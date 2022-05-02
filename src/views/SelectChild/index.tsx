@@ -7,6 +7,7 @@ import LucasMaggi from '../../assets/lucas-maggi.svg';
 import AddBlue from '../../assets/add-blue.svg';
 import Button from '../../components/Button';
 import './styles.scss';
+import { useRouteMatch } from "react-router-dom";
 
 interface IChild {
   image: string,
@@ -15,6 +16,7 @@ interface IChild {
 }
 
 function SelectChild() {
+  const { path } = useRouteMatch();
   const [children, setChildren] = useState<IChild[]>([
     {
       image: JoseCarlos,
@@ -41,7 +43,7 @@ function SelectChild() {
       name: "Lucas Maggi",
       id: "4"
     },
-  ]);
+  ]);  
 
   return (
     <section className='select-child'>
@@ -50,16 +52,20 @@ function SelectChild() {
 
       <div className='children-list'>
         {children.map((item: IChild) => (
+          <a href={`${window.location.origin}/app/parents-day-activities`}>
           <button key={item.id} onClick={() => {}}>
             <img className='children-icon' src={item.image} alt="Icone da criança" />
             <p>{item.name}</p>
           </button>
+          </a>
         ))}
-        <button onClick={() => {}}>
-          <img src={AddBlue} alt="Icone de adicionar criança" />
-        </button>
+        <a href={`${window.location.origin}/app/register-child`}>
+          <button>
+            <img src={AddBlue} alt="Icone de adicionar criança" />
+          </button>
+        </a>
       </div>
-      <Button text="Prosseguir" type="submit" onClick={() => {}} />
+      <Button text="Prosseguir" type="button" onClick={() => {}} />
     </section>
   );
 }

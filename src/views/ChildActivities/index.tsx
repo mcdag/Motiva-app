@@ -34,7 +34,7 @@ function ChildActivities() {
         </div>
         <div className='child-activities'>
           <h2 className=''>Para tentar realizar sozinho</h2>
-          {dailyActivities.map((activity) => 
+          {dailyActivities?.map((activity) => 
             <ChildActivity activityName={activity.name} activityStatus={activity.status as boolean} />
           )
           }

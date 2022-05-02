@@ -24,8 +24,8 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
     setOpenTrashDialog(!openTrashDialog);
   };
 
-  const oldChecksDailyActivities = list.dailyTasks.map((element) => element.status as boolean);
-  const oldChecksRelationshipActivities = list.relationshipTasks.map((element) => element.status as boolean);
+  const oldChecksDailyActivities = list?.dailyTasks?.map((element) => element.status as boolean);
+  const oldChecksRelationshipActivities = list?.relationshipTasks?.map((element) => element.status as boolean);
 
   const [checksDailyActivities, setChecksDailyActivities] = useState<boolean[]>(oldChecksDailyActivities);
   const [checksRelationshipActivities, setChecksRelationshipActivities] = useState<boolean[]>(oldChecksRelationshipActivities);
@@ -55,7 +55,7 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
         <SearchBar />
         <List className='activities-list' sx={{width: '135%'}} component='nav' aria-label='list'>
         <p className='activities-subtitle'> Para a criança tentar sozinha</p>
-        {list?.dailyTasks.map((activity, index) =>
+        {list?.dailyTasks?.map((activity, index) =>
             <div>
               <ListItem className='activity'>
                 <p> {activity.name} </p>

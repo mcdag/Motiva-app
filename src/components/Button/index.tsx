@@ -3,7 +3,7 @@ import './styles.scss';
 
 interface IButtonProps {
   type: "submit" | "button",
-  onClick: React.MouseEventHandler<HTMLButtonElement>,
+  onClick?: React.MouseEventHandler<HTMLButtonElement>,
   text: string
 }
 
