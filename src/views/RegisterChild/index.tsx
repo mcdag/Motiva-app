@@ -97,7 +97,7 @@ function RegisterChild() {
           <TextField required className='text-field' label='Gênero' variant='outlined' onChange={(e) => setGender(e.target.value)} />
 
           <TextField required className='text-field email' label='Email' variant='outlined' onChange={(e) => setEmail(e.target.value)} />
-          <TextField required className='text-field' label='Senha' variant='outlined' onChange={(e) => setPassword(e.target.value)} />
+          <TextField required className='text-field' type="password" label='Senha' variant='outlined' onChange={(e) => setPassword(e.target.value)} />
         </div>
 
         <Button text="Continuar" type="submit" />

@@ -5,6 +5,7 @@ import MariaVitoria from '../../assets/maria-vitoria.svg';
 import LuanaMerchi from '../../assets/luana-merchi.svg';
 import LucasMaggi from '../../assets/lucas-maggi.svg';
 import AddBlue from '../../assets/add-blue.svg';
+import Cookies from 'js-cookie'
 import Button from '../../components/Button';
 import './styles.scss';
 import { useRouteMatch } from "react-router-dom";
@@ -43,7 +44,12 @@ function SelectChild() {
       name: "Lucas Maggi",
       id: "4"
     },
-  ]);  
+  ]);
+
+  const handleClick = (item: IChild) => {
+    Cookies.set('childName', item.name);
+    Cookies.set('childId', item.id);
+  }
 
   return (
     <section className='select-child'>
@@ -53,7 +59,7 @@ function SelectChild() {
       <div className='children-list'>
         {children.map((item: IChild) => (
           <a href={`${window.location.origin}/app/parents-day-activities`}>
-          <button key={item.id} onClick={() => {}}>
+          <button key={item.id} onClick={() => handleClick(item)}>
             <img className='children-icon' src={item.image} alt="Icone da criança" />
             <p>{item.name}</p>
           </button>
@@ -65,7 +71,6 @@ function SelectChild() {
           </button>
         </a>
       </div>
-      <Button text="Prosseguir" type="button" onClick={() => {}} />
     </section>
   );
 }

@@ -18,15 +18,13 @@ const Route: React.FC<RouteProps> = ({
   component: Component,
   ...rest
 }) => {
-  // const token = Cookies.get('token');
-
-  const token = true;
+  const id = Cookies.get('id');
 
   return (
     <ReactDOMRoute
       {...rest}
       render={() => {
-        if (!isPrivate || !!token) {
+        if (!isPrivate || !!id) {
           return <Component />;
         }
         return <Redirect to="" />;

@@ -28,6 +28,7 @@
       border: transparent;
       border-radius: 50%;
       margin-left: 20px;
+      cursor: pointer;
     }
 
     p {
@@ -38,7 +39,7 @@
 
   .main-nav {
     @include flex(space-between, center, row);
-    height: 70px;
+    height: 90px;
     width: 100%;
     background-color: $orange;
 

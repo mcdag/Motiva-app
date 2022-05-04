@@ -77,7 +77,7 @@ function Login() {
           <div className='parent'>
             <div className='parent-text'>
               <p className='button-text'>É uma criança ?</p>
-              <a href={`${window.location.origin}/app/login/child`}>
+              <a href={`${window.location.origin}/auth/login/child`}>
                 <button className='button'>
                   Entre como uma
                 </button>
@@ -85,7 +85,7 @@ function Login() {
             </div>
             <div className='parent-text'>
               <p className='button-text'>Não tem uma conta ?</p>
-              <a href={`${window.location.origin}/app/register`}>
+              <a href={`${window.location.origin}/auth/register`}>
                 <button className='button'>
                   Registre-se agora
                 </button>
@@ -95,7 +95,7 @@ function Login() {
           :
           <div className='child'>
             <p className='child-text'>É um responsável ?</p>
-            <a href={`${window.location.origin}/app/login/parent`}>
+            <a href={`${window.location.origin}/auth/login/parent`}>
               <button className='button'>
                 Entre como um
               </button>

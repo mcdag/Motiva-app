@@ -4,6 +4,7 @@ import TasksIcon from '../../assets/tasks-icon.svg';
 import RewardIcon from '../../assets/reward-icon.svg';
 import ProfileIcon from '../../assets/profile-icon.svg';
 import AvatarIcon from '../../assets/avatar-icon.svg';
+import Cookies from 'js-cookie';
 import './styles.scss';
 import { useRouteMatch } from 'react-router';
 
@@ -13,14 +14,22 @@ interface IProps {
 
 function WithNav({ children }: IProps) {
   const { path } = useRouteMatch();
-  console.log(path)
+  const childName = Cookies.get('childName');
+
+  const handleClick = () => {
+    Cookies.remove('childName');
+    Cookies.remove('childId');
+  }
+
   return (
     <div className="main-layout">
       <header>
-        <button className='header-profile' onClick={() => {}}>
+      <a href={`${window.location.origin}/app/home`} onClick={() => handleClick()}>
+        <button className='header-profile'>
           <img src={AvatarIcon} alt="ícone de avatar" />
         </button>
-        <p>Maurício Carlos</p>
+      </a>
+        <p>{childName}</p>
       </header>
       <div className="content">
         {children}
@@ -32,7 +41,7 @@ function WithNav({ children }: IProps) {
         <a className={path === `/app/parents-activities` ? 'selected' : ''} href={`${window.location.origin}/app/parents-activities`}>
           <img className='nav-icon' src={TasksIcon} alt="Icone de tasks" />
         </a>
-        <a className={path === `/parents-rewards` ? 'selected' : ''} href={`${window.location.origin}/app/parents-activities`}>
+        <a className={path === `/app/parents-rewards` ? 'selected' : ''} href={`${window.location.origin}/app/parents-rewards`}>
           <img className='nav-icon' src={RewardIcon} alt="Icone de recompensas" />
         </a>
         <a className={path === `/app/profile` ? 'selected' : ''} href={`${window.location.origin}/app/profile`}>
