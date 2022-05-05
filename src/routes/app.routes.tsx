@@ -26,7 +26,6 @@ const AppRoutes: React.FC<RouteProps> = () => {
     <Router>
       <Switch>
         <Route path={`${path}/parents-activities-create`} component={ParentsActivitiesCreate} exact />
-        {/* <Route path={`${path}/select-child`} component={SelectChild} exact /> */}
         <Route path={`${path}/register-child`} component={RegisterChild} exact />
         <Route path={`${path}/parents-day-activities`} component={ParentsDayActivities} exact/>
         <Route path={`${path}/parents-activities`} component={ParentsActivities} exact/>

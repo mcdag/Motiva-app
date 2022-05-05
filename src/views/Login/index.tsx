@@ -69,7 +69,7 @@ function Login() {
         }
       </div>
       <div className='button-submit'>
-        <Button type='submit' onClick={handleClick} text='Salvar'/>
+        <Button type='submit' onClick={handleClick} text='Entrar'/>
       </div>
       <div className='child-or-parent'>
         {

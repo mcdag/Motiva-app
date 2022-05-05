@@ -1,11 +1,9 @@
 import ChildHeader  from '../../components/ChildHeader';
 import ChildReward from '../../components/ChildReward';
 import { RewardsService } from '../../services/Rewards';
-
 import { useEffect, useState } from 'react';
-import CoinIcon from '../../assets/icon-icon.svg';
-import './styles.scss';
 import { Reward } from '../../interfaces/Rewards';
+import './styles.scss';
 
 
 function ChildRewards() {
@@ -36,10 +34,9 @@ function ChildRewards() {
             <h2 className='subtitle'>Quando conseguir a quantia necessária para uma recompensa, fale com seu responsável</h2>
           </div>
           <div className='child-rewards'>
-            {rewards.map((reward, index) => 
+            {rewards.map(reward => 
               <ChildReward rewardName={reward.name} rewardValue={reward.cost}/>
-            )
-            }
+            )}
           </div>
         </main>
       </div>

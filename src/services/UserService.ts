@@ -22,4 +22,14 @@ export class UserService {
     );
     return response;
   }
+
+  static async getUser(id: string): Promise<AxiosResponse<User>> {
+    const response = await apiBack.get(
+      `/users/${id}`,
+      {
+        validateStatus: status => [200, 400, 500].includes(status),
+      },
+    );
+    return response;
+  }
 }

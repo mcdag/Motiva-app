@@ -70,14 +70,12 @@
   .fields {
     width: 100%;
     @include flex(center, flex-start, column);
+    margin-top: 20%;
+    margin-bottom: 30%;
 
     .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
       width: 100%;
       margin-bottom: 15px;
-    }
-
-    .email {
-      margin-top: 30px;
     }
   }
 }

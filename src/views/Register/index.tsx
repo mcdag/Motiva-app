@@ -1,5 +1,6 @@
 import { TextField } from '@mui/material';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Button from '../../components/Button';
 import { User } from '../../interfaces/User';
 import { UserService } from '../../services/UserService';
@@ -40,6 +41,7 @@ function Register() {
       password: password,
     }
     await UserService.createUser(user);
+    window.location.replace(`${window.location.origin}/auth/login/parent`)
   })
 
   return (

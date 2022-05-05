@@ -19,8 +19,6 @@
   
     .rewards-list {
       width: 100%;
-      // margin-top: 15%;
-      // margin-bottom: 150px;
       font-weight: 400;
       font-size: 20px;
       line-height: 25px;
@@ -34,22 +32,30 @@
         .coin-reward {
           @include flex(center, center, row);
           @include style-font(light, 14pt);
-          img {
-            margin-right: 10px;
+
+          .coin-text {
+            display: flex;
+            justify-content: center;
+            margin-right: 15px;
+
+            img {
+              margin-right: 10px;
+            }
           }
-        }
-        .reward-title {
-          max-width: 200px;
+          .reward-title {
+            max-width: 200px;
+            font-size: 18px;
+          }
         }
       }
     }
   }
   
   .rewards-buttons {
-    // width: 90%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
-    // position: fixed;
-    bottom: 40px;
+    position: fixed;
+    bottom: 110px;
   }
 }

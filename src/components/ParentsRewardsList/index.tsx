@@ -42,10 +42,12 @@ function ParentsRewardsList({title, list}: Props) {
               <div key={index}>
                 <ListItem className='reward'>
                   <div className='coin-reward'>
-                    <img src={CoinIcon} alt="Icone da moeda" />
-                    <p>{rewards.cost}</p>
+                    <div className='coin-text'>
+                      <img src={CoinIcon} alt="Icone da moeda" />
+                      <p>{rewards.cost}</p>
+                    </div>
+                    <p className='reward-title'> {rewards.name} </p>         
                   </div>
-                  <p className='reward-title'> {rewards.name} </p>         
                   <><IconButton className='icon' onClick={handleClickOpenTrashDialog}>
                     <img src={TrashCanIcon} alt='Lata de lixo' />
                   </IconButton>

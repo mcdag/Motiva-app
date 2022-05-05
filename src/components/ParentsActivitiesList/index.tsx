@@ -98,11 +98,7 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
                   }} className='check-box' checked={checksRelationshipActivities[index]}
                   onClick={() => handleChecksRelationshipActivities(index, activity)}/>
                   :
-                  <><IconButton className='icon' onClick={handleClickOpenTrashDialog}>
-                    <img src={TrashCanIcon} alt='Lata de lixo' />
-                  </IconButton>
-                  <ConfirmationDialog data={title.toLowerCase().substring(0, title.length-1)} open={openTrashDialog} handleFunction={handleClickOpenTrashDialog} />
-                  </>
+                  <></>
                 }
               </ListItem>
               <Divider />
