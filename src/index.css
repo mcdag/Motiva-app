@@ -1,4 +1,8 @@
 body {
   margin: 0;
-  font-family: Outfit, 'sans-serif'
+  font-family: Outfit, 'sans-serif';
+}
+
+a {
+  text-decoration: none;
 }

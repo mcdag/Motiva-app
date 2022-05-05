@@ -15,7 +15,6 @@ import RegisterChild from '../views/RegisterChild';
 
 import './styles.scss';
 import Route from './Route';
-import Register from '../views/Register';
 import RewardRegister from '../views/RewardRegister';
 import SelectChild from '../views/SelectChild';
 
@@ -34,7 +33,6 @@ const AppRoutes: React.FC<RouteProps> = () => {
         <Route path={`${path}/activities-instructions`} component={ActivityInstructions} exact/>
         <Route path={`${path}/child-rewards`} component={ChildRewards} />
         <Route path={`${path}/reward-register`} component={RewardRegister} />
-
         <Route path={`${path}/home`} component={SelectChild} exact />
         <Redirect to={`${path}/home`} />
       </Switch>
