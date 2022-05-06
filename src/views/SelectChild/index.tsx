@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import child0 from '../../assets/child-0.svg';
 import child1 from '../../assets/child-1.svg';
 import child2 from '../../assets/child-2.svg';
@@ -6,9 +5,10 @@ import child3 from '../../assets/child-3.svg';
 import child4 from '../../assets/child-4.svg';
 import AddBlue from '../../assets/add-blue.svg';
 import Cookies from 'js-cookie'
-import './styles.scss';
+import { useEffect, useState } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { UserService } from '../../services/UserService';
+import './styles.scss';
 
 interface IChild {
   id: string;
@@ -30,7 +30,7 @@ function SelectChild() {
           return {
             id: el.id as string,
             name: el.name,
-            icon: icons[parseInt(el.icon as string)],
+            icon: el.icon as string,
           }
         })
         setChildren(children);
@@ -47,6 +47,7 @@ function SelectChild() {
   const handleClick = (item: IChild) => {
     Cookies.set('childName', item.name);
     Cookies.set('childId', item.id);
+    Cookies.set('childIcon', item.icon)
   }
 
   return (
@@ -57,7 +58,7 @@ function SelectChild() {
           {children.map((item: IChild) => (
             <a href={`${window.location.origin}/app/parents-day-activities`}>
             <button key={item.id} onClick={() => handleClick(item)}>
-              <img className='children-icon' src={item.icon} alt="Icone da criança" />
+              <img className='children-icon' src={icons[parseInt(item.icon)]} alt="Icone da criança" />
               <p>{item.name}</p>
             </button>
             </a>

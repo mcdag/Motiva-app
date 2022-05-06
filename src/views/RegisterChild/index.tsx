@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Cookies from 'js-cookie';
 import Slider from 'react-slick';
 import Button from '../../components/Button';
 import icon0 from '../../assets/child-0.svg';
@@ -8,14 +10,11 @@ import icon3 from '../../assets/child-3.svg';
 import icon4 from '../../assets/child-4.svg';
 import LeftArrow from '../../assets/left-arrow.svg';
 import RightArrow from '../../assets/right-arrow.svg';
+import { useState } from 'react';
 import { TextField } from '@mui/material';
-import './styles.scss';
-
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import { UserService } from '../../services/UserService';
-import Cookies from 'js-cookie';
 import { User } from '../../interfaces/User';
+import './styles.scss';
 
 interface IIcon {
   image: string,
@@ -29,6 +28,7 @@ function RegisterChild() {
   const [age, setAge] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [icon, setIcon] = useState('');
 
   const icons: IIcon[] = [
     {
@@ -63,13 +63,17 @@ function RegisterChild() {
     speed: 500
   }
 
+  const handleClick = (id: string) => {
+    setIcon(id);
+  }
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const child: User = {
-      name: name,
-      email: email,
-      icon: '1',
-      password: password,
+      name,
+      email,
+      icon,
+      password,
       parentId: id,
     }
     await UserService.createUser(child);
@@ -88,7 +92,7 @@ function RegisterChild() {
           <div className='carousel-content'>
             <Slider ref={setSliderRef} {...sliderSettings}>
               {icons.map((icon) => (
-                <button className='icon' key={icon.id}>
+                <button className='icon' onClick={() => handleClick(icon.id)} key={icon.id}>
                   <img src={icon.image} alt=''/>
                 </button>
               ))}
