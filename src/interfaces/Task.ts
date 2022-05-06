@@ -24,7 +24,7 @@ export interface Task {
   createdForId: string;
   createdFor?: User;
   date?: string;
-  status?: Boolean;
+  done?: boolean;
 }
 
 export interface Tasks {

@@ -3,7 +3,7 @@ import { Checkbox, Divider, IconButton, List, ListItem } from '@mui/material';
 import TrashCanIcon from '../../assets/trash-can-icon.svg';
 import AddIcon from '../../assets/add-icon.svg';
 import WithNav from '../WithNavHeader';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ConfirmationDialog from '../../components/ConfirmationDialog';
 import { Task, Tasks } from '../../interfaces/Task';
 import './styles.scss';
@@ -24,14 +24,11 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
     setOpenTrashDialog(!openTrashDialog);
   };
 
-  const oldChecksDailyActivities = list?.dailyTasks?.map((element) => element.status as boolean);
-  const oldChecksRelationshipActivities = list?.relationshipTasks?.map((element) => element.status as boolean);
-
-  const [checksDailyActivities, setChecksDailyActivities] = useState<boolean[]>(oldChecksDailyActivities);
-  const [checksRelationshipActivities, setChecksRelationshipActivities] = useState<boolean[]>(oldChecksRelationshipActivities);
-
+  const [checksDailyActivities, setChecksDailyActivities] = useState<boolean[]>([]);
+  const [checksRelationshipActivities, setChecksRelationshipActivities] = useState<boolean[]>([]);
+  
   const handleChecksDailyActivities = async (index: number, task: Task) => {
-    task.status = !task.status;
+    task.done = !task.done;
     await TasksService.updateTask(task.id as string, task)
 
     const newChecks = checksDailyActivities;
@@ -40,13 +37,20 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
   };
 
   const handleChecksRelationshipActivities = async (index: number, task: Task) => {
-    task.status = !task.status;
+    task.done = !task.done;
     await TasksService.updateTask(task.id as string, task)
-    
     const newChecks = checksRelationshipActivities;
     newChecks[index] = !(newChecks[index]);
     setChecksRelationshipActivities([...newChecks]);
   };
+
+  useEffect(() => {
+    const oldChecksDailyActivities = list?.dailyTasks?.map((element) => element.done as boolean);
+    const oldChecksRelationshipActivities = list?.relationshipTasks?.map((element) => element.done as boolean);
+
+    setChecksDailyActivities(oldChecksDailyActivities);
+    setChecksRelationshipActivities(oldChecksRelationshipActivities);
+  }, [list])
 
   return (
     <WithNav>
@@ -67,7 +71,7 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
                     '&.Mui-checked': {
                       color: '#fa971d',
                     },
-                  }} className='check-box' checked={checksDailyActivities[index]}
+                  }} className='check-box' checked={checksDailyActivities[index] || activity.done}
                   onClick={() => handleChecksDailyActivities(index, activity)}/>
                   :
                   <><IconButton className='icon' onClick={handleClickOpenTrashDialog}>
@@ -95,7 +99,7 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
                     '&.Mui-checked': {
                       color: '#fa971d',
                     },
-                  }} className='check-box' checked={checksRelationshipActivities[index]}
+                  }} className='check-box' checked={checksRelationshipActivities[index] || activity.done}
                   onClick={() => handleChecksRelationshipActivities(index, activity)}/>
                   :
                   <></>
