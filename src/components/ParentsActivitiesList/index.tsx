@@ -111,13 +111,13 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
         </List>
       </div>
       <div className='button-activities-padding'/>
-      <div className='button-activities'>
+      <button className='button-activities'>
         {addButton && 
           <IconButton sx={{marginLeft: 'auto'}}>
             <img src={AddIcon} alt='Adicionar' />
           </IconButton>
         }
-      </div>
+      </button>
     </WithNav>
   );
 }
