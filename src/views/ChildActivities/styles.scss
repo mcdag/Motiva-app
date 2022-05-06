@@ -1,42 +1,44 @@
 @import '../../global//refs.scss';
 
 .child-activities-container {
-    width: 100%;
-    max-width: 500px;
-    padding: 25px;
-    box-sizing: border-box;
-    margin: auto;
+  width: 100%;
+  max-width: 500px;
+  padding: 25px;
+  box-sizing: border-box;
+  margin: auto;
 
-    .body {
-        .body-header {
-            @include flex(space-between, center, row);
+  .body {
+    .body-header {
+      @include flex(center, center, row);
+      margin-top: 5%;
+      margin-bottom: 12%;
     
-            .title {
-                align-self: center;
-                margin: 20px 0;
-                @include style-font(bold, 25pt);
-            }
-    
-            .logout {
-                margin-right: 20px;
-            }
-        }
-        .child-activities {
-            margin-top: 25px;
-            @include flex(flex-start, center, column);
-            
-        }
-        .parent-activities {
-            margin-top: 25px;
-            @include flex(flex-start, center, column);
+      .title {
+        align-self: center;
+        @include style-font(bold, 25pt);
+      }
 
-        }
-        h2 {
-            width: 90%;
-            margin: 0px;
-            margin-bottom: 10px;
-            color: $orange;
-            @include style-font(light, 20pt); 
-        }
+      .logout {
+        margin-right:0 px;
+      }
     }
+
+    .child-activities {
+      margin-top: 25px;
+      @include flex(flex-start, center, column);     
+    }
+
+    .parent-activities {
+      margin-top: 25px;
+      @include flex(flex-start, center, column);
+    }
+
+    h2 {
+      width: 90%;
+      margin: 0px;
+      margin-bottom: 10px;
+      color: $orange;
+      @include style-font(light, 20pt); 
+    }
+  }
 }
