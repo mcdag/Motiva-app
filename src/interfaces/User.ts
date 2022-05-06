@@ -3,6 +3,7 @@ export interface User {
   name: string;
   email: string;
   icon?: string;
+  coins?: number;
   phone?: string;
   parentId?: string;
   password: string;
