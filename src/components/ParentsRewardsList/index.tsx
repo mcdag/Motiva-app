@@ -1,16 +1,15 @@
 import SearchBar from '../../components/SearchBar';
-import { Divider, IconButton, List, ListItem } from '@mui/material';
 import TrashCanIcon from '../../assets/trash-can-icon.svg';
 import RewardIcon from '../../assets/coin-2-icon.svg';
 import CoinIcon from '../../assets/coin-4-icon.svg';
 import AddIcon from '../../assets/add-icon.svg';
-import UserInfo from '../../components/UserInfo';
-import { useState } from 'react';
 import ConfirmationDialog from '../../components/ConfirmationDialog';
 import FormDialog from '../FormDialog';
-import './styles.scss';
 import WithNav from '../WithNavHeader';
+import { Divider, IconButton, List, ListItem } from '@mui/material';
+import { useState } from 'react';
 import { Reward } from '../../interfaces/Rewards';
+import './styles.scss';
 
 
 interface Props {
@@ -43,7 +42,7 @@ function ParentsRewardsList({title, list}: Props) {
                 <ListItem className='reward'>
                   <div className='coin-reward'>
                     <div className='coin-text'>
-                      <img src={CoinIcon} alt="Icone da moeda" />
+                      <img src={CoinIcon} alt='Ícone da moeda' />
                       <p>{rewards.cost}</p>
                     </div>
                     <p className='reward-title'> {rewards.name} </p>         
