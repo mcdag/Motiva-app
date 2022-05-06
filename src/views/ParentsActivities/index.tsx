@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import ParentsActivitiesList from '../../components/ParentsActivitiesList';
 import { Tasks } from '../../interfaces/Task';
@@ -12,7 +13,8 @@ function ParentsActivities() {
   );
   async function get() {
     const today = false;
-    const response = await TasksService.getTasks(today);
+    const createdForId = Cookies.get('childId');
+    const response = await TasksService.getTasks(today, createdForId as string);
     if (response.status === 200) {
       const { data } = response;
       setList(data);

@@ -14,11 +14,11 @@ export class TasksService {
     return response;
   }
 
-  static async getTasks (today: boolean
+  static async getTasks (today: boolean, createdForId: string
   ): Promise<AxiosResponse<Tasks>> {
-    let route = 'tasks';
+    let route = `tasks/?createdFor${createdForId}`;
     if(today){
-      route = `${route}/?today=${today}`
+      route = `tasks/?today=${today}&createdFor${createdForId}`
     }
     const response = await apiBack.get(
       route,
