@@ -11,6 +11,11 @@
     margin-right: auto;
   }
 
+  #confirmation-dialog-description {
+    box-sizing: border-box;
+    margin: auto;
+  }
+
   .title {
     color: black;
     font-weight: 600;
@@ -33,4 +38,8 @@
       background-color: $darkOrange;
     }
   }
+}
+
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  overflow-y: none !important;
 }

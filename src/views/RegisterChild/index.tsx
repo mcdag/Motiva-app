@@ -28,7 +28,7 @@ function RegisterChild() {
   const [age, setAge] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [icon, setIcon] = useState('');
+  const [icon, setIcon] = useState(0);
 
   const icons: IIcon[] = [
     {
@@ -63,21 +63,37 @@ function RegisterChild() {
     speed: 500
   }
 
-  const handleClick = (id: string) => {
-    setIcon(id);
-  }
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const child: User = {
       name,
       email,
-      icon,
+      icon: icon.toString(),
       password,
       parentId: id,
     }
     await UserService.createUser(child);
     window.location.replace(`${window.location.origin}/home`)
+  }
+
+  const handleNext = () => {
+    if (icon === 4) {
+      setIcon(0);
+    } else {
+      setIcon(icon + 1);
+    }
+
+    sliderRef?.slickNext();
+  }
+
+  const handlePrev = () => {
+    if (icon === 0) {
+      setIcon(4);
+    } else {
+      setIcon(icon - 1);
+    }
+
+    sliderRef?.slickPrev();
   }
 
   return (
@@ -87,20 +103,20 @@ function RegisterChild() {
 
       <form onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}>
         <div className='carousel'>
-          <button type='button' className='arrow-button' onClick={sliderRef?.slickPrev}>
-            <img src={LeftArrow} alt=''/>
+          <button type='button' className='arrow-button' onClick={handlePrev}>
+            <img src={LeftArrow} alt='seta esquerda'/>
           </button>
           <div className='carousel-content'>
             <Slider ref={setSliderRef} {...sliderSettings}>
               {icons.map((icon) => (
-                <button className='icon' onClick={() => handleClick(icon.id)} key={icon.id}>
+                <button type="button" className='icon' key={icon.id}>
                   <img src={icon.image} alt=''/>
                 </button>
               ))}
             </Slider>
           </div>
-          <button type='button' className='arrow-button' onClick={sliderRef?.slickNext}>
-            <img src={RightArrow} />
+          <button type='button' className='arrow-button' onClick={handleNext}>
+            <img src={RightArrow} alt="seta direita" />
           </button>
         </div>
 

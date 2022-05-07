@@ -10,6 +10,7 @@ function ParentsDayActivities() {
     dailyTasks: [],
     relationshipTasks: []
   });
+  const [updated, setUpdated] = useState<boolean>(false);
 
   async function get() {
     const today = true;
@@ -27,7 +28,7 @@ function ParentsDayActivities() {
   }, []);
 
   return (
-    <ParentsActivitiesList title={'Atividades do dia'} checkbox={true} addButton={false} list={list as Tasks} />
+    <ParentsActivitiesList title={'Atividades do dia'} checkbox={true} addButton={false} list={list as Tasks} setUpdated={() => setUpdated(!updated)} />
   );
 }
 

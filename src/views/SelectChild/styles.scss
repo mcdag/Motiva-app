@@ -32,6 +32,7 @@
       cursor: pointer;
       @include flex(center, center, column);
       margin: 10px;
+      width: 130px;
 
       p {
         font-weight: $medium;

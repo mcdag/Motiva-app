@@ -53,7 +53,9 @@ function ParentsRewardsList({title, list}: Props) {
                   <><IconButton className='icon' onClick={handleClickOpenTrashDialog}>
                     <img src={TrashCanIcon} alt='Lata de lixo' />
                   </IconButton>
-                  <ConfirmationDialog id={rewards.id as string} data={title.toLowerCase().substring(0, title.length-1)} open={openTrashDialog} handleFunction={handleClickOpenTrashDialog} />
+                  {openTrashDialog && (
+                    <ConfirmationDialog id={rewards.id as string} data={title.toLowerCase().substring(0, title.length-1)} handleFunction={handleClickOpenTrashDialog} />
+                  )}
                   </>
                 </ListItem>
                 <Divider />

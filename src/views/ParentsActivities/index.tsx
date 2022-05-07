@@ -9,8 +9,9 @@ function ParentsActivities() {
   ({
     dailyTasks: [],
     relationshipTasks: [],
-  });
-  
+  }
+  );
+  const [updated, setUpdated] = useState<boolean>(false);
   async function get() {
     const today = false;
     const createdForId = Cookies.get('childId');
@@ -24,10 +25,10 @@ function ParentsActivities() {
 
   useEffect(() => {
     get();
-  }, []);
+  }, [updated]);
 
   return (
-    <ParentsActivitiesList title={'Atividades'} checkbox={false} addButton={true} list={list as Tasks} />
+    <ParentsActivitiesList title={'Atividades'} checkbox={false} addButton={true} list={list as Tasks} setUpdated={() => setUpdated(!updated)} />
   );
 }
 

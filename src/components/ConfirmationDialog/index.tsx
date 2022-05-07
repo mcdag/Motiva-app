@@ -13,12 +13,12 @@ import './styles.scss';
 interface Props {
   id: string;
   data: string;
-  open: boolean;
+  // open: boolean;
   handleFunction: MouseEventHandler;
 }
 
 
-function ConfirmationDialog({id, data, open, handleFunction}: Props) {
+function ConfirmationDialog({id, data, handleFunction}: Props) {
   const icons = [icon0, icon1, icon2, icon3, icon4];
   const childIcon = Cookies.get('childIcon') as string;
   const icon = icons[parseInt(childIcon)];
@@ -40,10 +40,11 @@ function ConfirmationDialog({id, data, open, handleFunction}: Props) {
       style: {
         borderRadius: '20px',
         boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+        overflowY: 'unset'
       },
     }}
     className='confirmation-dialog-container'
-    open={open}
+    open={true}
     onClose={handleFunction}
     aria-labelledby='confirmation-dialog-title'
     aria-describedby='confirmation-dialog-description'

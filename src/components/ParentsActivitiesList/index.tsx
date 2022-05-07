@@ -15,13 +15,15 @@ interface Props {
   checkbox: boolean;
   addButton: boolean;
   list: Tasks;
+  setUpdated: Function;
 }
 
-function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
+function ParentsActivitiesList({title, checkbox, addButton, list, setUpdated}: Props) {
   const [openTrashDialog, setOpenTrashDialog] = useState(false);
   
   const handleClickOpenTrashDialog = () => {
     setOpenTrashDialog(!openTrashDialog);
+    setUpdated();
   };
 
   const clickButton = () => {
@@ -81,7 +83,9 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
                   <><IconButton className='icon' onClick={handleClickOpenTrashDialog}>
                     <img src={TrashCanIcon} alt='Lata de lixo' />
                   </IconButton>
-                  <ConfirmationDialog id={activity.id as string} data={title.toLowerCase().substring(0, title.length-1)} open={openTrashDialog} handleFunction={handleClickOpenTrashDialog} />
+                  {openTrashDialog && (
+                    <ConfirmationDialog id={activity.id as string} data={title.toLowerCase().substring(0, title.length-1)} handleFunction={handleClickOpenTrashDialog} />
+                  )}
                   </>
                 }
               </ListItem>
