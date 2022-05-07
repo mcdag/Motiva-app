@@ -7,14 +7,11 @@ import Route from './Route';
 
 const Routes: React.FC = () => {
   const id = Cookies.get('id');
-  const childId = Cookies.get('childId');
-  console.log(childId)
-
   return (
     <Switch>
       <Route path="/app" component={AppRoutes} isPrivate />
       <Route path="/auth" component={AuthRoutes} />
-      <Redirect to={(id || childId) ? '/app' : '/auth'} />
+      <Redirect to={(id) ? '/app' : '/auth'} />
     </Switch>
   );
 };

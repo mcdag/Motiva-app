@@ -39,8 +39,10 @@ function Login() {
       Cookies.set('id', response.data.id);
       if(identifier === 'parent'){
         window.location.replace(`${window.location.origin}/app/select-child`);
+        Cookies.set('type', 'parent');
       } else {
         window.location.replace(`${window.location.origin}/app/child-activities`);
+        Cookies.set('type', 'child');
       }
     }
   })

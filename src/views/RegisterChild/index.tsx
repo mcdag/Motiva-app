@@ -92,7 +92,6 @@ function RegisterChild() {
           </button>
           <div className='carousel-content'>
             <Slider ref={setSliderRef} {...sliderSettings}>
-              {console.log(setSliderRef)}
               {icons.map((icon) => (
                 <button className='icon' onClick={() => handleClick(icon.id)} key={icon.id}>
                   <img src={icon.image} alt=''/>
