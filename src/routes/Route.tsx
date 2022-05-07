@@ -19,12 +19,13 @@ const Route: React.FC<RouteProps> = ({
   ...rest
 }) => {
   const id = Cookies.get('id');
+  const childId = Cookies.get('childId');
 
   return (
     <ReactDOMRoute
       {...rest}
       render={() => {
-        if (!isPrivate || !!id) {
+        if (!isPrivate || (!!id || !!childId)) {
           return <Component />;
         }
         return <Redirect to="" />;

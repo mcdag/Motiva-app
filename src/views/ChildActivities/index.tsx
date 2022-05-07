@@ -25,29 +25,33 @@ function ChildActivities() {
   }, []);
 
   return (
-    <div className='child-activities-container'>
+    <>
       <ChildHeader valueCoin={350} backButton={false} />
-      <main className='body'>
-        <div className='body-header'>
-          <h1 className='title'>Atividades</h1>
-          <img className='logout' src={LogoutIcon} alt="Icone de logout" />
-        </div>
-        <div className='child-activities'>
-          <h2 className=''>Para tentar realizar sozinho</h2>
-          {dailyActivities?.map((activity) => 
-            <ChildActivity activityName={activity.name} activityStatus={activity.status as boolean} />
-          )
-          }
-        </div>
-        <div className='parent-activities'>
-          <h2 className=''>Para tentar realizar sozinho</h2>
-          {relationshipActivities.map((activity) => 
-            <ChildActivity activityName={activity.name} activityStatus={activity.status as boolean} />
-          )
-          }
-        </div>
-      </main>
-    </div>
+      <div className='child-activities-container'>
+        <main className='body'>
+          <div className='body-header'>
+            <h1 className='title'>Atividades</h1>
+            <img className='logout' src={LogoutIcon} alt="Icone de logout" />
+          </div>
+          <div className='child-activities'>
+            <h2 className=''>Para tentar realizar sozinho</h2>
+            {dailyActivities?.map((activity) => 
+              <ChildActivity key={activity.id} activityName={activity.name} activityStatus={activity.status as boolean} />
+            )
+            }
+          </div>
+          <div className='parent-activities'>
+            <h2 className='with-parent'>Para realizar com o seu responsável</h2>
+            {relationshipActivities.map((activity) => 
+              <a key={activity.id} href={`${window.location.origin}/app/activities-instructions/${activity.id}`}>
+                <ChildActivity activityName={activity.name} activityStatus={activity.status as boolean} />
+              </a>
+            )
+            }
+          </div>
+        </main>
+      </div>
+    </>
   );
 }
   

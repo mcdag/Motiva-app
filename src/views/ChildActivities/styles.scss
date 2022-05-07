@@ -7,6 +7,13 @@
     box-sizing: border-box;
     margin: auto;
 
+    a {
+        text-decoration: none;
+        color: #000;
+        width: 100%;
+        @include flex(center, center, row);
+    }
+
     .body {
         .body-header {
             @include flex(space-between, center, row);
@@ -17,9 +24,6 @@
                 @include style-font(bold, 25pt);
             }
     
-            .logout {
-                margin-right: 20px;
-            }
         }
         .child-activities {
             margin-top: 25px;
@@ -36,7 +40,11 @@
             margin: 0px;
             margin-bottom: 10px;
             color: $orange;
-            @include style-font(light, 20pt); 
+            @include style-font(light, 20pt);
+
+            &.with-parent {
+                font-size: 20px;
+            }
         }
     }
 }

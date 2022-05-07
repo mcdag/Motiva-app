@@ -8,20 +8,25 @@ interface Props {
 }
 
 function ChildHeader({valueCoin, backButton} : Props) {
+    const handleClick = () => {
+        window.history.back();
+    }
+
     return (
         <nav className='child-header-container'>
             <div className='content'>
-                { backButton ?
-                <div className='back-button'>
-                    <img src={BackIcon} alt="Icone de voltar" />
-                </div>
-                : <></>}
-                <div className='coin'>
-                    <img className='coin-icon' src={CoinIcon} alt="Icone de moeda" />
-                    <p className='value'>{valueCoin}</p>
-                </div>
+                { backButton && (
+                    <button onClick={() => handleClick()} className='back-button'>
+                        <img src={BackIcon} alt="Icone de voltar" />
+                    </button>
+                )}
+                <a href={`${window.location.origin}/app/child-rewards`}>
+                    <button onClick={() => {}} className='coin'>
+                        <img className='coin-icon' src={CoinIcon} alt="Icone de moeda" />
+                        <p className='value'>{valueCoin}</p>
+                    </button>
+                </a>
             </div>
-            <div className='line'></div>
         </nav>
     );
   }

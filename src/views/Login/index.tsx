@@ -37,9 +37,15 @@ function Login() {
       setError(true)
     }else {
       setUser(response.data);
-      Cookies.set('name', response.data.name);
-      Cookies.set('id', response.data.id);
-      window.location.replace(`${window.location.origin}/app/select-child`);
+      if (identifier === 'parent') {
+        Cookies.set('name', response.data.name);
+        Cookies.set('id', response.data.id);
+        window.location.replace(`${window.location.origin}/app/select-child`);
+      } else {
+        Cookies.set('childName', response.data.name);
+        Cookies.set('childId', response.data.id);
+        window.location.replace(`${window.location.origin}/app/child-activities`);
+      }
     }
   })
 
