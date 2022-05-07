@@ -7,38 +7,44 @@
   box-sizing: border-box;
   margin: auto;
 
-  .body {
-    .body-header {
-      @include flex(center, center, row);
-      margin-top: 5%;
-      margin-bottom: 12%;
+    a {
+        text-decoration: none;
+        color: #000;
+        width: 100%;
+        @include flex(center, center, row);
+    }
+
+    .body {
+        .body-header {
+            @include flex(space-between, center, row);
     
-      .title {
-        align-self: center;
-        @include style-font(bold, 25pt);
-      }
+            .title {
+                align-self: center;
+                // margin: 20px 0;
+                @include style-font(bold, 25pt);
+            }
+    
+        }
+        .child-activities {
+            margin-top: 25px;
+            @include flex(flex-start, center, column);
+            
+        }
+        .parent-activities {
+            margin-top: 25px;
+            @include flex(flex-start, center, column);
 
-      .logout {
-        margin-right:0 px;
-      }
-    }
+        }
+        h2 {
+            width: 90%;
+            margin: 0px;
+            margin-bottom: 10px;
+            color: $orange;
+            @include style-font(light, 20pt);
 
-    .child-activities {
-      margin-top: 25px;
-      @include flex(flex-start, center, column);     
-    }
-
-    .parent-activities {
-      margin-top: 25px;
-      @include flex(flex-start, center, column);
-    }
-
-    h2 {
-      width: 90%;
-      margin: 0px;
-      margin-bottom: 10px;
-      color: $orange;
-      @include style-font(light, 20pt); 
+            &.with-parent {
+                font-size: 20px;
+            }
+        }
     }
   }
-}

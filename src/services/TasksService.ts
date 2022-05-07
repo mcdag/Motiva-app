@@ -30,6 +30,18 @@ export class TasksService {
     return response;
   }
 
+  static async getTask (id: string): Promise<AxiosResponse<Tasks>> {
+      let route = `tasks/${id}`;
+
+      const response = await apiBack.get(
+        route,
+        {
+          validateStatus: status => [200, 404].includes(status),
+        },
+      );
+      return response;
+    }
+
   static async updateTask (id: string, task: Task
   ): Promise<AxiosResponse> {
     const response = await apiBack.patch(

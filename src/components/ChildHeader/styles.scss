@@ -2,28 +2,35 @@
 
 .child-header-container {
     width: 100%;
-    margin-top: 15px;
+    height: 70px;
     @include flex(center, center, column);
-    .line {
-        width: 100%;
-        height: 1px;
-        background-color: $gray;
-    }
+    border-bottom: 1px solid $gray;
 }
 
 .content {
     width: 90%;
-    margin-bottom: 25px;
     @include flex(space-between, flex-start, row);
+    // align-self: flex-end;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-left: auto;
+    }
+
+    .back-button {
+        background-color: white;
+        border: none;
+    }
 
     .coin {
         background-color: $yellow;
         @include flex(space-between, center, row);
         border-radius: 30px 30px 30px 30px;
         margin-left: auto;
-        .coin-icon {
-            
-        }
+        border: none;
+        cursor: pointer;
         .value {
             margin: 0 0 2px 0;
             padding: 0 10px;

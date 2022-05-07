@@ -24,7 +24,6 @@ function ChildRewards() {
       get();
     }, []);
 
-
     return (
       <div className='child-rewardss-container'>
         <ChildHeader valueCoin={350} backButton={true} />
