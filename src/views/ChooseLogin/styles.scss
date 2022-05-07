@@ -1,44 +1,66 @@
-.login-parent-child-container {
-  width: 100%;
-  max-width: 500px;
-  margin: auto;
-  min-height: 100vh;
+@import '../../global//refs.scss';
+
+
+.choose-login-general-container {
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  font: 'Outfit';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  color: #555454;
+  width: 100%;
 
-  .parent-login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .child-login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .login-register {
+  .title-container {
     display: flex;
     justify-content: center;
 
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .title-text {
+      color: $darkOrange;
+      font-weight: bold;
+      font-style: normal;
+      font-size: 30px;
+      line-height: 38px;
+      margin-left: 2%;
+      margin-top: 7%;
     }
-
-    .button {
-      background-color: transparent;
-      border: 0;
-      font-weight: 800;
+  }
+  
+  .login-parent-child-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    min-height: 80vh;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: #555454;
+  
+    .parent-login {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .child-login {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .login-register {
+      display: flex;
+      justify-content: center;
+  
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+  
+      .button {
+        background-color: transparent;
+        border: 0;
+        font-weight: 800;
+      }
     }
   }
 }
