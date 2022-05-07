@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import ChildHeader  from '../../components/ChildHeader';
 import ChildActivity from '../../components/ChildActivity';
 import LogoutIcon from '../../assets/logout-icon.svg';
@@ -12,7 +13,8 @@ function ChildActivities() {
 
   async function get() {
     const today = false;
-    const response = await TasksService.getTasks(today);
+    const createdForId = Cookies.get('childId');
+    const response = await TasksService.getTasks(today, createdForId as string);
     if (response.status === 200) {
       const { data } = response;
       setDailyActivities(data?.dailyTasks);
@@ -36,7 +38,7 @@ function ChildActivities() {
           <div className='child-activities'>
             <h2 className=''>Para tentar realizar sozinho</h2>
             {dailyActivities?.map((activity) => 
-              <ChildActivity key={activity.id} activityName={activity.name} activityStatus={activity.status as boolean} />
+              <ChildActivity key={activity.id} activityName={activity.name} activityStatus={activity.done as boolean} />
             )
             }
           </div>
@@ -44,7 +46,7 @@ function ChildActivities() {
             <h2 className='with-parent'>Para realizar com o seu responsável</h2>
             {relationshipActivities.map((activity) => 
               <a key={activity.id} href={`${window.location.origin}/app/activities-instructions/${activity.id}`}>
-                <ChildActivity activityName={activity.name} activityStatus={activity.status as boolean} />
+                <ChildActivity activityName={activity.name} activityStatus={activity.done as boolean} />
               </a>
             )
             }
@@ -55,4 +57,4 @@ function ChildActivities() {
   );
 }
   
-  export default ChildActivities;
+export default ChildActivities;

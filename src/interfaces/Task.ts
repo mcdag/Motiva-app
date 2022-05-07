@@ -18,13 +18,14 @@ export interface Task {
   name: string;
   coins: number;
   type: TaskType;
+  instructions?: string[];
   days: Day[];
   createdById: string;
   createdBy?: User;
   createdForId: string;
   createdFor?: User;
   date?: string;
-  status?: Boolean;
+  done?: boolean;
 }
 
 export interface Tasks {

@@ -1,11 +1,11 @@
 @import '../../global//refs.scss';
 
 .child-activities-container {
-    width: 100%;
-    max-width: 500px;
-    padding: 25px;
-    box-sizing: border-box;
-    margin: auto;
+  width: 100%;
+  max-width: 500px;
+  padding: 25px;
+  box-sizing: border-box;
+  margin: auto;
 
     a {
         text-decoration: none;
@@ -20,7 +20,7 @@
     
             .title {
                 align-self: center;
-                margin: 20px 0;
+                // margin: 20px 0;
                 @include style-font(bold, 25pt);
             }
     
@@ -47,4 +47,4 @@
             }
         }
     }
-}
+  }

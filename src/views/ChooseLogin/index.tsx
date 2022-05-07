@@ -3,7 +3,7 @@ import AdultIcon from '../../assets/adult-icon.svg';
 import KidIcon from '../../assets/kid-icon.svg';
 import './styles.scss';
 
-function chooseLogin() {
+function ChooseLogin() {
   return (
     <div className='login-parent-child-container'>
       <div className='parent-login'>
@@ -30,4 +30,4 @@ function chooseLogin() {
   );
 }
 
-export default chooseLogin;
+export default ChooseLogin;

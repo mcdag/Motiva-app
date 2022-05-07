@@ -14,12 +14,13 @@ export class TasksService {
     return response;
   }
 
-  static async getTasks (today: boolean
+  static async getTasks (today: boolean, createdForId: string
   ): Promise<AxiosResponse<Tasks>> {
-    let route = 'tasks';
+    let route = `tasks/?createdForId=${createdForId}`;
     if(today){
-      route = `${route}/?today=${today}`
+      route = `tasks/?today=${today}&createdForId=${createdForId}`
     }
+    console.log(route)
     const response = await apiBack.get(
       route,
       {
@@ -44,9 +45,10 @@ export class TasksService {
   static async updateTask (id: string, task: Task
   ): Promise<AxiosResponse> {
     const response = await apiBack.patch(
-     `tasks/${id}`, task,
-    {
-      validateStatus: status => [200, 400].includes(status),          },
+      `tasks/${id}`, task,
+      {
+        validateStatus: status => [200, 400].includes(status), 
+      },
     );
     return response;
   }

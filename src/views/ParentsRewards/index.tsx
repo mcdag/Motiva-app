@@ -1,16 +1,15 @@
-import { useEffect, useState } from "react";
-import ParentsRewardsList from "../../components/ParentsRewardsList";
-import { Reward } from "../../interfaces/Rewards";
-import { RewardsService } from "../../services/Rewards";
+import ParentsRewardsList from '../../components/ParentsRewardsList';
+import Cookies from 'js-cookie';
+import { useEffect, useState } from 'react';
+import { Reward } from '../../interfaces/Rewards';
+import { RewardsService } from '../../services/Rewards';
 
 function ParentsRewards() {
-  const list: string[] = ['Ir para cinema', 'Ir para o estádio', 'Jogar Xbox por 2 horas', 'Jogar Xbox por 1 hora'];
   const [rewards, setRewards] = useState<Reward[]>([]);
 
   async function get() {
-    //trocar essa linha de childId para buscar do context
-    const childId = "37e393a5-3065-41db-a5fa-7ed5c33b80d2";
-    const response = await RewardsService.importAllRewardsByChild(childId);
+    const childId = Cookies.get('childId');
+    const response = await RewardsService.importAllRewardsByChild(childId as string);
     if (response.status === 200) {
       const { data } = response;
       setRewards(data);

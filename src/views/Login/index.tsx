@@ -1,9 +1,9 @@
+import Button from '../../components/Button';
+import Cookies from 'js-cookie'
 import { Alert, TextField } from '@mui/material';
 import { useState } from 'react';
-import Cookies from 'js-cookie'
-import { Link, Redirect, useParams } from 'react-router-dom';
-import Button from '../../components/Button';
-import { Auth, User } from '../../interfaces/User';
+import { useParams } from 'react-router-dom';
+import { Auth} from '../../interfaces/User';
 import { UserService } from '../../services/UserService';
 import './styles.scss'
 
@@ -17,7 +17,6 @@ function Login() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<boolean>(false);
-  const [user, setUser] = useState<User>();
 
   const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -33,17 +32,14 @@ function Login() {
       password: password,
     }
     const response = await UserService.getLogin(login);
-    if(response.status !== 200){
+    if (response.status !== 200) {
       setError(true)
-    }else {
-      setUser(response.data);
-      if (identifier === 'parent') {
-        Cookies.set('name', response.data.name);
-        Cookies.set('id', response.data.id);
+    } else {
+      Cookies.set('name', response.data.name);
+      Cookies.set('id', response.data.id);
+      if(identifier === 'parent'){
         window.location.replace(`${window.location.origin}/app/select-child`);
       } else {
-        Cookies.set('childName', response.data.name);
-        Cookies.set('childId', response.data.id);
         window.location.replace(`${window.location.origin}/app/child-activities`);
       }
     }
@@ -52,7 +48,7 @@ function Login() {
   return (
     <div className='general-login-container'>
       <p className='title'>Faça o login</p>
-      <p className='subtitle'> Bem-vindo de volta,</p>
+      <p className='subtitle'> Bem-vindo de volta!</p>
       <p className='subtitle'> Nós sentimos sua falta </p>
       <div className='invalid-auth'>
         {

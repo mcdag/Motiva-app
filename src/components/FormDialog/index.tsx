@@ -5,17 +5,26 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { MouseEventHandler } from 'react';
 import RewardIcon from '../../assets/coin-2-icon.svg';
+import { MouseEventHandler, useState } from 'react';
 import './styles.scss';
+import { RewardsService } from '../../services/Rewards';
+import Cookies from 'js-cookie';
 
 interface Props {
   open: boolean;
   handleFunction: MouseEventHandler;
 }
 
-
 function FormDialog({open, handleFunction}: Props){
+  const [coins, setCoins] = useState<number>(0);
+
+  const handleClickDebit = async (event: React.MouseEvent<Element, MouseEvent>) => {
+    const childId = Cookies.get('childId') as string;
+    await RewardsService.debitCoins(childId, coins);
+    handleFunction(event);
+  }
+
   return (
       <Dialog 
         PaperProps={{
@@ -39,11 +48,12 @@ function FormDialog({open, handleFunction}: Props){
             id="name"
             type="number"
             variant="outlined"
+            onChange={e => setCoins(+e.target.value)}
           />
         </DialogContent>
         <DialogActions className='buttons'>
           <Button className='button' onClick={handleFunction}>Cancelar</Button>
-          <Button className='button' onClick={handleFunction}>Debitar</Button>
+          <Button className='button' onClick={handleClickDebit}>Debitar</Button>
         </DialogActions>
       </Dialog>
   );
