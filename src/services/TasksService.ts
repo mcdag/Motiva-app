@@ -30,9 +30,9 @@ export class TasksService {
     return response;
   }
 
-  static async getTask (id: string): Promise<AxiosResponse<Tasks>> {
+  static async getTask (id: string): Promise<AxiosResponse<Task>> {
       let route = `tasks/${id}`;
-
+      console.log(id);
       const response = await apiBack.get(
         route,
         {

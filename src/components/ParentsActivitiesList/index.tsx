@@ -68,7 +68,7 @@ function ParentsActivitiesList({title, checkbox, addButton, list, setUpdated}: P
         {list?.dailyTasks?.map((activity, index) =>
             <div>
               <ListItem className='activity'>
-                <p> {activity.name} </p>
+                <p><a className='activity-link' href={`${window.location.origin}/app/parents-activities-edit/${activity.id}`}>{activity.name}</a></p>
                 {
                 checkbox ? 
                   <Checkbox sx={{

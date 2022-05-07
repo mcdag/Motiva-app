@@ -12,6 +12,7 @@ import ParentsDayActivities from '../views/ParentsDayActivities';
 import ParentsRewards from '../views/ParentsRewards';
 import ChildRewards from '../views/ChildRewards';
 import RegisterChild from '../views/RegisterChild';
+import ParentsActivitiesEdit from '../views/ParentsActivitiesEdit';
 
 import './styles.scss';
 import Route from './Route';
@@ -26,6 +27,7 @@ const AppRoutes: React.FC<RouteProps> = () => {
       <Switch>
         <Route path={`${path}/child-activities`} component={ChildActivities} exact/>
         <Route path={`${path}/parents-activities-create`} component={ParentsActivitiesCreate} exact />
+        <Route path={`${path}/parents-activities-edit/:id`} component={ParentsActivitiesEdit} exact/>
         <Route path={`${path}/register-child`} component={RegisterChild} exact />
         <Route path={`${path}/parents-day-activities`} component={ParentsDayActivities} exact/>
         <Route path={`${path}/parents-activities`} component={ParentsActivities} exact/>
