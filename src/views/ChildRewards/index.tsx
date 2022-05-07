@@ -4,6 +4,7 @@ import { RewardsService } from '../../services/Rewards';
 import { useEffect, useState } from 'react';
 import { Reward } from '../../interfaces/Rewards';
 import './styles.scss';
+import Cookies from 'js-cookie';
 
 
 function ChildRewards() {
@@ -11,9 +12,8 @@ function ChildRewards() {
     const [rewards, setRewards] = useState<Reward[]>([]);
 
     async function get() {
-      //trocar essa linha de childId para buscar do context
-      const childId = "e8d43690-a6ce-4b91-ba17-c082ed290f71";
-      const response = await RewardsService.importAllRewardsByChild(childId);
+      const createdForId = Cookies.get('childId') as string;
+      const response = await RewardsService.importAllRewardsByChild(createdForId);
       if (response.status === 200) {
         const { data } = response;
         setRewards(data);

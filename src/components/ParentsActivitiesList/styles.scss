@@ -32,6 +32,10 @@
       flex-direction: row;
       justify-content: space-between;
       margin-top: 4%;
+      .activity-link {
+        text-decoration: none;
+        color: black;
+      }
     }
   }
 }
