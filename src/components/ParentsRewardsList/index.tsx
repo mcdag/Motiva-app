@@ -19,12 +19,15 @@ interface Props {
 
 function ParentsRewardsList({title, list}: Props) {
   const [openTrashDialog, setOpenTrashDialog] = useState(false);
+  const [openRewardsDialog, setOpenRewardsDialog] = useState(false);
   
+  const handleClickNewReward = () => {
+    window.location.replace(`${window.location.origin}/app/reward-register`)
+  }
+
   const handleClickOpenTrashDialog = () => {
     setOpenTrashDialog(!openTrashDialog);
   };
-
-  const [openRewardsDialog, setOpenRewardsDialog] = useState(false);
   
   const handleClickOpenRewardsDialog = () => {
     setOpenRewardsDialog(!openRewardsDialog);
@@ -50,7 +53,7 @@ function ParentsRewardsList({title, list}: Props) {
                   <><IconButton className='icon' onClick={handleClickOpenTrashDialog}>
                     <img src={TrashCanIcon} alt='Lata de lixo' />
                   </IconButton>
-                  <ConfirmationDialog data={title.toLowerCase().substring(0, title.length-1)} open={openTrashDialog} handleFunction={handleClickOpenTrashDialog} />
+                  <ConfirmationDialog id={rewards.id as string} data={title.toLowerCase().substring(0, title.length-1)} open={openTrashDialog} handleFunction={handleClickOpenTrashDialog} />
                   </>
                 </ListItem>
                 <Divider />
@@ -65,7 +68,7 @@ function ParentsRewardsList({title, list}: Props) {
           </IconButton>
           <FormDialog open={openRewardsDialog} handleFunction={handleClickOpenRewardsDialog} />
         </>
-        <IconButton sx={{marginLeft: 'auto'}}>
+        <IconButton sx={{marginLeft: 'auto'}} onClick={handleClickNewReward}>
           <img src={AddIcon} alt='Adicionar' />
         </IconButton>
         </div>

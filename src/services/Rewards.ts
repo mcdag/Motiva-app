@@ -26,4 +26,26 @@ export class RewardsService {
     );
     return response;
   }
+
+  static async debitCoins (childId: string, coins: number
+  ): Promise<AxiosResponse>  {
+    const response = await apiBack.patch(
+      `users/${childId}/redeem`, { coins: coins },
+      {
+        validateStatus: status => [200, 404].includes(status),
+      },
+    );
+    return response;
+  }
+
+  static async deleteReward (id: string
+  ): Promise<AxiosResponse> {
+    const response = await apiBack.delete(
+      `awards/${id}`,
+      {
+        validateStatus: status => [204, 400].includes(status),
+      },
+    );
+    return response;
+  }
 }

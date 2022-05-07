@@ -10,6 +10,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { TasksService } from '../../services/TasksService';
 import { Day, Task } from '../../interfaces/Task';
 import './styles.scss';
+import Cookies from 'js-cookie';
 
 interface IWeekDay {
   initials: string,
@@ -29,15 +30,20 @@ function ParentsActivitiesCreate() {
       return week[parseInt(day)]
     });
   
+    const parentId = Cookies.get('id');
+    const childId = Cookies.get('childId');
+    
     const task: Task = {
       name: taskName,
       coins: parseInt(reward),
+      type: 'daily',
       days: days,
-      createdById: '',
-      createdForId: '',
-      type: 'daily'
+      createdById: parentId as string,
+      createdForId: childId as string,
     }
+
     await TasksService.createTask(task);
+    window.location.replace(`${window.location.origin}/app/parents-activities`)
   }
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -112,16 +118,7 @@ function ParentsActivitiesCreate() {
           <p>
             Atividades criadas aqui serão reconhecidas como atividades para a criança tentar realizar sozinha
           </p>
-
         </div>
-
-      <div className='footer-warning'>
-        <img className='warning-icon' src={WarningIcon} alt="icone de alerta" />
-        <p>
-          Atividades criadas aqui serão reconhecidas como atividades para a criança tentar realizar sozinha
-        </p>
-
-      </div>
 
       <Button type="submit" onClick={handleClickSubmit} text="Salvar" />
     </section>

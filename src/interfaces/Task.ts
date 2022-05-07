@@ -18,6 +18,7 @@ export interface Task {
   name: string;
   coins: number;
   type: TaskType;
+  instructions?: string[];
   days: Day[];
   createdById: string;
   createdBy?: User;

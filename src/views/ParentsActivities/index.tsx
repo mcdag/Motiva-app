@@ -14,6 +14,7 @@ function ParentsActivities() {
   async function get() {
     const today = false;
     const createdForId = Cookies.get('childId');
+
     const response = await TasksService.getTasks(today, createdForId as string);
     if (response.status === 200) {
       const { data } = response;

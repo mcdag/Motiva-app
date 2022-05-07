@@ -1,5 +1,5 @@
 export interface Reward {
-  id?: number;
+  id?: string;
   name: string;
   cost: number;
   createdById: string;

@@ -14,7 +14,9 @@ function ParentsDayActivities() {
   async function get() {
     const today = true;
     const createdForId = Cookies.get('childId');
+    console.log(createdForId)
     const response = await TasksService.getTasks(today, createdForId as string);
+    console.log(response.data)
     if (response.status === 200) {
       const { data } = response;
       setList(data);

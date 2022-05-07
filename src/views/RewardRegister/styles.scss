@@ -1,7 +1,8 @@
 @import '../../global//refs.scss';
 
 .reward-register-container {
-  width: 100%;
+  margin-top: 3%;
+  width: 90%;
   max-width: 500px;
   padding: 25px;
   box-sizing: border-box;
@@ -28,6 +29,7 @@
   .reward-title, .reward-value {
     width: 100%;
     margin-bottom: 5%;
+    margin-top: 5%;
 
     input {
       outline: none;
@@ -59,7 +61,7 @@
     }
   }
   .save-button {
-    margin-top: 55%;
+    margin-top: 65%;
     width: 100%;
   }
 } 

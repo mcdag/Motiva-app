@@ -24,6 +24,10 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
     setOpenTrashDialog(!openTrashDialog);
   };
 
+  const clickButton = () => {
+    window.location.replace(`${window.location.origin}/app/parents-activities-create`)
+  }
+
   const [checksDailyActivities, setChecksDailyActivities] = useState<boolean[]>([]);
   const [checksRelationshipActivities, setChecksRelationshipActivities] = useState<boolean[]>([]);
   
@@ -77,7 +81,7 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
                   <><IconButton className='icon' onClick={handleClickOpenTrashDialog}>
                     <img src={TrashCanIcon} alt='Lata de lixo' />
                   </IconButton>
-                  <ConfirmationDialog data={title.toLowerCase().substring(0, title.length-1)} open={openTrashDialog} handleFunction={handleClickOpenTrashDialog} />
+                  <ConfirmationDialog id={activity.id as string} data={title.toLowerCase().substring(0, title.length-1)} open={openTrashDialog} handleFunction={handleClickOpenTrashDialog} />
                   </>
                 }
               </ListItem>
@@ -113,7 +117,7 @@ function ParentsActivitiesList({title, checkbox, addButton, list}: Props) {
       <div className='button-activities-padding'/>
       <button className='button-activities'>
         {addButton && 
-          <IconButton sx={{marginLeft: 'auto'}}>
+          <IconButton sx={{marginLeft: 'auto'}} onClick={()=>clickButton()}>
             <img src={AddIcon} alt='Adicionar' />
           </IconButton>
         }

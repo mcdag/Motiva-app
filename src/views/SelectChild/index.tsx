@@ -6,7 +6,6 @@ import child4 from '../../assets/child-4.svg';
 import AddBlue from '../../assets/add-blue.svg';
 import Cookies from 'js-cookie'
 import { useEffect, useState } from 'react';
-import { useRouteMatch } from 'react-router-dom';
 import { UserService } from '../../services/UserService';
 import './styles.scss';
 
@@ -41,8 +40,6 @@ function SelectChild() {
   useEffect(() => {
     get();
   }, [])
-
-  // const { path } = useRouteMatch();
 
   const handleClick = (item: IChild) => {
     Cookies.set('childName', item.name);
