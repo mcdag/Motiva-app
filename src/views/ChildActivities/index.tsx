@@ -6,19 +6,27 @@ import { TasksService } from '../../services/TasksService';
 import { useEffect, useState } from 'react';
 import { Task } from '../../interfaces/Task';
 import './styles.scss';
+import { UserService } from '../../services/UserService';
 
 function ChildActivities() {
   const [dailyActivities, setDailyActivities] = useState<Task[]>([])
   const [relationshipActivities, setRelationshipActivities] = useState<Task[]>([])
+  const [coin, setCoin] = useState(0);
 
   async function get() {
     const today = false;
-    const createdForId = Cookies.get('childId');
+    const createdForId = Cookies.get('id') as string;
     const response = await TasksService.getTasks(today, createdForId as string);
+    console.log(response)
     if (response.status === 200) {
       const { data } = response;
       setDailyActivities(data?.dailyTasks);
       setRelationshipActivities(data?.relationshipTasks);
+    }
+    const userResponse = await UserService.getUser(createdForId);
+    if (userResponse.status === 200) {
+      const { data } = userResponse;
+      setCoin(data.coins as number);
     }
   }
 
@@ -26,17 +34,26 @@ function ChildActivities() {
     get();
   }, []);
 
+  const handleClickLogout = () => {
+    Cookies.remove('id');
+    Cookies.remove('name');
+    Cookies.remove('type');
+    window.location.replace(`${window.location.origin}/auth/choose-login`)
+  }
+
   return (
     <>
-      <ChildHeader valueCoin={350} backButton={false} />
+      <ChildHeader valueCoin={coin} backButton={false} />
       <div className='child-activities-container'>
         <main className='body'>
           <div className='body-header'>
             <h1 className='title'>Atividades</h1>
-            <img className='logout' src={LogoutIcon} alt="Icone de logout" />
+            <button onClick={handleClickLogout} className='logout-button'>
+              <img className='logout' src={LogoutIcon} alt="Icone de logout" />
+            </button>
           </div>
           <div className='child-activities'>
-            <h2 className=''>Para tentar realizar sozinho</h2>
+            <h2 className='with-parent'>Para tentar realizar sozinho</h2>
             {dailyActivities?.map((activity) => 
               <ChildActivity key={activity.id} activityName={activity.name} activityStatus={activity.done as boolean} />
             )

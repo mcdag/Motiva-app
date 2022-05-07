@@ -3,6 +3,7 @@ import Instruction from '../../components/Instruction';
 import { useParams } from 'react-router-dom';
 import { TasksService } from '../../services/TasksService';
 import loading from '../../assets/loading.png';
+import BackIcon from '../../assets/arrow-back-icon.svg';
 import './styles.scss';
 import { useState, useEffect } from 'react';
 
@@ -22,8 +23,15 @@ function ActivityInstructions() {
     get();
   }, []);
 
+  const handleClick = () => {
+    window.history.back();
+}
+
   return (
     <div className='activities-instructions-container'>
+      <button onClick={() => handleClick()} className='back-button'>
+          <img src={BackIcon} alt="Icone de voltar" />
+      </button>
       {activity ? (
         <div className='main-content'>
           <p className='activity-name'> {activity.name}</p>

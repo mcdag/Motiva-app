@@ -23,6 +23,10 @@
                 // margin: 20px 0;
                 @include style-font(bold, 25pt);
             }
+            .logout-button {
+                background: transparent;
+                border: 0;
+            }
     
         }
         .child-activities {
@@ -44,6 +48,7 @@
 
             &.with-parent {
                 font-size: 20px;
+                margin-top: 30px;
             }
         }
     }
