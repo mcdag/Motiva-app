@@ -1,7 +1,7 @@
+import Button from '../../components/Button';
+import InputMask from 'react-input-mask';
 import { TextField } from '@mui/material';
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import Button from '../../components/Button';
 import { User } from '../../interfaces/User';
 import { UserService } from '../../services/UserService';
 import './styles.scss'
@@ -51,9 +51,16 @@ function Register() {
       <div className='text-fields'>
         <TextField sx={{marginBottom: '5%'}} className='text-field' label='Nome' variant='outlined' onChange={handleChangeName} />
         <TextField sx={{marginBottom: '5%'}} className='text-field' label='Nome de usuário' variant='outlined' onChange={handleChangeUsername} />
-        <TextField sx={{marginBottom: '5%'}} className='text-field' label='Telefone' variant='outlined' onChange={handleChangeTelephoneNumber} />
+        <InputMask
+          mask='(99) 99999-9999'
+          value={telephoneNumber}
+          disabled={false}
+          onChange={handleChangeTelephoneNumber}
+          >
+          {() => <TextField sx={{marginBottom: '5%'}} className='text-field' label='Telefone' variant='outlined'/>}
+        </InputMask>
         <TextField sx={{marginBottom: '5%'}} className='text-field' label='Email' variant='outlined' onChange={handleChangeEmail} />
-        <TextField type="password" className='text-field' label='Senha' variant='outlined' onChange={handleChangePassword} />
+        <TextField type='password' className='text-field' label='Senha' variant='outlined' onChange={handleChangePassword} />
       </div>
       <div className='button-register'>
         <Button type='submit' onClick={handleClick} text='Registrar'/>

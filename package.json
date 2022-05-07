@@ -21,6 +21,7 @@
     "js-cookie": "^3.0.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-input-mask": "^2.0.4",
     "react-router-dom": "5.2.0",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
@@ -64,5 +65,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-input-mask": "^3.0.1",
+    "@types/react-text-mask": "^5.4.11"
   }
 }
