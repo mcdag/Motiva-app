@@ -18,10 +18,20 @@
     height: 65px;
     border-bottom: 1px solid $gray;
     display: flex;
+    flex-direction: row;
     align-items: center;
     padding: 10px 0;
+    justify-content: space-between;
 
-    flex-direction: row;
+    .header-profile {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .header-logout {
+      margin-right: 5%;
+    }
 
     button {
       background-color: transparent;
@@ -49,7 +59,7 @@
 
     a {
       &.selected {
-        margin-bottom: 2px solid white;;
+        margin-bottom: 2px solid white;
       }
     }
   }

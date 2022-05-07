@@ -1,13 +1,13 @@
-import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from "@mui/material";
-import Cookies from "js-cookie";
-import { MouseEventHandler } from 'react';
+import Cookies from 'js-cookie';
 import icon0 from '../../assets/child-0.svg';
 import icon1 from '../../assets/child-1.svg';
 import icon2 from '../../assets/child-2.svg';
 import icon3 from '../../assets/child-3.svg';
 import icon4 from '../../assets/child-4.svg';
-import { RewardsService } from "../../services/Rewards";
-import { TasksService } from "../../services/TasksService";
+import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from '@mui/material';
+import { MouseEventHandler } from 'react';
+import { RewardsService } from '../../services/Rewards';
+import { TasksService } from '../../services/TasksService';
 import './styles.scss';
 
 interface Props {
@@ -45,15 +45,15 @@ function ConfirmationDialog({id, data, open, handleFunction}: Props) {
     className='confirmation-dialog-container'
     open={open}
     onClose={handleFunction}
-    aria-labelledby="confirmation-dialog-title"
-    aria-describedby="confirmation-dialog-description"
+    aria-labelledby='confirmation-dialog-title'
+    aria-describedby='confirmation-dialog-description'
   >
-     <img className='avatar' width='37.5%' src={icon} alt="Avatar da criança" />
-    <DialogTitle className='title' id="confirmation-dialog-title">
+     <img className='avatar' width='37.5%' src={icon} alt='Avatar da criança' />
+    <DialogTitle className='title' id='confirmation-dialog-title'>
       {`Deseja mesmo excluir esta ${data}?`}
     </DialogTitle>
     <DialogContent className='content'>
-      <DialogContentText id="confirmation-dialog-description">
+      <DialogContentText id='confirmation-dialog-description'>
         Caso queira ter esta {data} de novo, basta
         criá-la novamente!
       </DialogContentText>

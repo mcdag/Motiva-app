@@ -1,5 +1,7 @@
+import Cookies from 'js-cookie';
 import HomeIcon from '../../assets/home-icon.svg';
 import TasksIcon from '../../assets/tasks-icon.svg';
+import LogoutIcon from '../../assets/logout-icon.svg';
 import RewardIcon from '../../assets/reward-icon.svg';
 import ProfileIcon from '../../assets/profile-icon.svg';
 import icon0 from '../../assets/child-0.svg';
@@ -8,7 +10,6 @@ import icon2 from '../../assets/child-2.svg';
 import icon3 from '../../assets/child-3.svg';
 import icon4 from '../../assets/child-4.svg';
 import { useRouteMatch } from 'react-router';
-import Cookies from 'js-cookie';
 import './styles.scss';
 
 interface IProps {
@@ -24,20 +25,36 @@ function WithNav({ children }: IProps) {
   const icon = icons[parseInt(childIcon as string)];
 
   const handleClick = () => {
-    Cookies.remove('childName');
     Cookies.remove('childId');
+    Cookies.remove('childName');
+    Cookies.remove('childIcon');
+  }
+
+  const handleClickLogout = () => {
+    Cookies.remove('id');
+    Cookies.remove('childId');
+    Cookies.remove('childName');
     Cookies.remove('childIcon');
   }
 
   return (
     <div className='main-layout'>
       <header>
-      <a href={`${window.location.origin}/app/home`} onClick={() => handleClick()}>
-        <button className='header-profile'>
-          <img width='60px' src={icon} alt='ícone de avatar' />
-        </button>
-      </a>
-        <p>{childName}</p>
+        <div className='header-profile'>
+          <a href={`${window.location.origin}/app/home`} onClick={() => handleClick()}>
+            <button className='profile-button'>
+              <img width='60px' src={icon} alt='ícone de avatar' />
+            </button>
+          </a>
+          <p>{childName}</p>
+        </div>
+        <div className='header-logout'>
+          <a href={`${window.location.origin}/auth/choose-login`} onClick={() => handleClickLogout()}>
+            <button className='logout-button'>
+              <img width='35px' src={LogoutIcon} alt='botão de logout' />
+            </button>
+          </a>
+        </div>
       </header>
       <div className='content'>
         {children}

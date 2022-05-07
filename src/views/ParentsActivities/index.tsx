@@ -1,16 +1,16 @@
 import Cookies from 'js-cookie';
-import { useEffect, useState } from 'react';
 import ParentsActivitiesList from '../../components/ParentsActivitiesList';
+import { useEffect, useState } from 'react';
 import { Tasks } from '../../interfaces/Task';
 import { TasksService } from '../../services/TasksService';
 
 function ParentsActivities() {
-  const [list, setList] = useState<Tasks>(
-  {
+  const [list, setList] = useState<Tasks>
+  ({
     dailyTasks: [],
     relationshipTasks: [],
-  }
-  );
+  });
+  
   async function get() {
     const today = false;
     const createdForId = Cookies.get('childId');
