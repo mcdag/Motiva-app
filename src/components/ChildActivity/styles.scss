@@ -6,9 +6,17 @@
         @include flex(flex-start, center, row);
         .activity-name {
             margin-left: 20px;
+            max-width: 190px;
         }
         .check {
             text-decoration-line: line-through;
+        }
+        .activity-coin {
+            @include flex(flex-start, center, row);
+            margin-left: auto;
+            p {
+                margin-left: 5px;
+            }
         }
     }
     .line {

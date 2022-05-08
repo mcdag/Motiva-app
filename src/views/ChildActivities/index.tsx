@@ -69,7 +69,7 @@ function ChildActivities() {
           <div className='child-activities'>
             <h2 className='with-parent'>Para tentar realizar sozinho</h2>
             {dailyActivities?.map((activity) => 
-              <ChildActivity key={activity.id} activityName={activity.name} activityStatus={activity.done as boolean} />
+              <ChildActivity key={activity.id} activityName={activity.name} activityStatus={activity.done as boolean} activityCoin={activity.coins.toString()} />
             )
             }
           </div>
@@ -77,7 +77,7 @@ function ChildActivities() {
             <h2 className='with-parent'>Para realizar em conjunto</h2>
             {relationshipActivities.map((activity) => 
               <a key={activity.id} href={`${window.location.origin}/app/activities-instructions/${activity.id}`}>
-                <ChildActivity activityName={activity.name} activityStatus={activity.done as boolean} />
+                <ChildActivity activityName={activity.name} activityStatus={activity.done as boolean} activityCoin={activity.coins.toString()} />
               </a>
             )
             }

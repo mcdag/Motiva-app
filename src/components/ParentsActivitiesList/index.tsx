@@ -98,7 +98,9 @@ function ParentsActivitiesList({title, checkbox, addButton, list, setUpdated}: P
         {list?.relationshipTasks.map((activity, index) =>
             <div>
               <ListItem className='activity'>
+              <a className='activity-name' key={activity.id} href={`${window.location.origin}/app/activities-instructions/${activity.id}`}>
                 <p> {activity.name} </p>
+              </a> 
                 {
                 checkbox ? 
                   <Checkbox sx={{
