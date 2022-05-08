@@ -1,11 +1,11 @@
 // @ts-nocheck
 import Instruction from '../../components/Instruction';
-import { useParams } from 'react-router-dom';
-import { TasksService } from '../../services/TasksService';
 import loading from '../../assets/loading.png';
 import BackIcon from '../../assets/arrow-back-icon.svg';
-import './styles.scss';
+import { useParams } from 'react-router-dom';
+import { TasksService } from '../../services/TasksService';
 import { useState, useEffect } from 'react';
+import './styles.scss';
 
 function ActivityInstructions() {
   const [activity, setActivity] = useState();
@@ -30,7 +30,7 @@ function ActivityInstructions() {
   return (
     <div className='activities-instructions-container'>
       <button onClick={() => handleClick()} className='back-button'>
-          <img src={BackIcon} alt="Icone de voltar" />
+          <img src={BackIcon} alt='Icone de voltar' />
       </button>
       {activity ? (
         <div className='main-content'>
@@ -42,7 +42,9 @@ function ActivityInstructions() {
           </div>
         </div>
       ) : (
-        <img src={loading} alt="Icone de loading" />
+        <div className='loading-container'>
+          <img src={loading} alt='Icone de loading' />
+        </div>
       )}
     </div>
   );
