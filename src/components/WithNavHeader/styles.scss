@@ -49,18 +49,41 @@
 
   .main-nav {
     @include flex(space-between, center, row);
-    height: 90px;
+    height: 92px;
     width: 100%;
     background-color: $orange;
 
-    .nav-icon {
-      margin: 0 20px;
-    }
-
-    a {
-      &.selected {
-        margin-bottom: 2px solid white;
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 95%;
+      
+      
+      .nav-icon {
+        margin: 0 20px;
       }
-    }
+      
+      a {
+        margin-top: 5px;
+        text-align: center;
+
+        .space {
+          margin-bottom: 5px;
+        }
+
+        &.selected {
+          background-color: #ff000033;
+          padding: 10%;
+        }
+      }
+
+      p {
+        color: white;
+        margin-top: 3px;
+        font-size: 12px;
+        margin-bottom: 3px;
+      }
+    } 
   }
 }

@@ -60,18 +60,31 @@ function WithNav({ children }: IProps) {
         {children}
       </div>
       <nav className='main-nav'>
-        <a className={path === `/app/parents-day-activities` ? 'selected' : ''} href={`${window.location.origin}/app/parents-day-activities`}>
-          <img className='nav-icon' src={HomeIcon} alt='Icone da home' />
-        </a>
-        <a className={path === `/app/parents-activities` ? 'selected' : ''} href={`${window.location.origin}/app/parents-activities`}>
-          <img className='nav-icon' src={TasksIcon} alt='Icone de tasks' />
-        </a>
-        <a className={path === `/app/parents-rewards` ? 'selected' : ''} href={`${window.location.origin}/app/parents-rewards`}>
-          <img className='nav-icon' src={RewardIcon} alt='Icone de recompensas' />
-        </a>
-        <a className={path === `/app/profile` ? 'selected' : ''} href={`${window.location.origin}/app/profile`}>
-          <img className='nav-icon' src={ProfileIcon} alt='Icone de perfil' />
-        </a>
+        <div className='button-container'>
+          <a className={path === `/app/parents-day-activities` ? 'selected' : ''} href={`${window.location.origin}/app/parents-day-activities`}>
+            <img width={'37.4px'} className='nav-icon' src={HomeIcon} alt='Icone da home' />
+            <p className='subtitle'> Tarefas Diárias</p>
+          </a>
+        </div>
+        <div className='button-container'>
+          <a className={path === `/app/parents-activities` ? 'selected' : ''} href={`${window.location.origin}/app/parents-activities`}>
+            <img className='nav-icon' src={TasksIcon} alt='Icone de tasks' />
+            <p className='subtitle'> Tarefas </p>
+          </a>
+        </div>
+        <div className='button-container'>
+          <a className={path === `/app/parents-rewards` ? 'selected' : ''} href={`${window.location.origin}/app/parents-rewards`}>
+            <img className='nav-icon' src={RewardIcon} alt='Icone de recompensas' />
+            <p className='subtitle'> Recompensas</p>
+          </a>
+        </div>
+        <div className='button-container'>
+          <a className={path === `/app/profile` ? 'selected' : ''} href={`${window.location.origin}/app/profile`}>
+            <img className='nav-icon' src={ProfileIcon} alt='Icone de perfil' />
+            <div className='space'></div>
+            <p className='subtitle'> Perfil</p>
+          </a>
+        </div>
       </nav>
     </div>
   );
