@@ -16,7 +16,7 @@ function ChildActivities() {
   const [coin, setCoin] = useState(0);
 
   async function get() {
-    const today = false;
+    const today = true;
     const createdForId = Cookies.get('id') as string;
     const response = await TasksService.getTasks(today, createdForId as string);
     console.log(response)
