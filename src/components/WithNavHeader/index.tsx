@@ -9,14 +9,17 @@ import icon1 from '../../assets/child-1.svg';
 import icon2 from '../../assets/child-2.svg';
 import icon3 from '../../assets/child-3.svg';
 import icon4 from '../../assets/child-4.svg';
+import LogoutDialog from '../../components/LogoutDialog';
 import { useRouteMatch } from 'react-router';
 import './styles.scss';
+import { useState } from 'react';
 
 interface IProps {
   children: React.ReactNode;
 }
 
 function WithNav({ children }: IProps) {
+  const [logoutDialog, setLogoutDialog] = useState(false);
   const { path } = useRouteMatch();
   const childName = Cookies.get('childName');
 
@@ -35,7 +38,14 @@ function WithNav({ children }: IProps) {
     Cookies.remove('childId');
     Cookies.remove('childName');
     Cookies.remove('childIcon');
+    Cookies.remove('name');
+    Cookies.remove('type');
+    window.location.replace(`${window.location.origin}/auth/choose-login`);
   }
+
+  const handleClickOpenLogoutDialog = () => {
+    setLogoutDialog(!logoutDialog);
+  };
 
   return (
     <div className='main-layout'>
@@ -49,11 +59,12 @@ function WithNav({ children }: IProps) {
           <p>{childName}</p>
         </div>
         <div className='header-logout'>
-          <a href={`${window.location.origin}/auth/choose-login`} onClick={() => handleClickLogout()}>
-            <button className='logout-button'>
-              <img width='35px' src={LogoutIcon} alt='botão de logout' />
-            </button>
-          </a>
+          <button onClick={handleClickOpenLogoutDialog} className='logout-button'>
+            <img width='35px' src={LogoutIcon} alt='botão de logout' />
+          </button>
+          {logoutDialog && (
+            <LogoutDialog handleFunction={handleClickOpenLogoutDialog} handleLogout={handleClickLogout} />
+          )}
         </div>
       </header>
       <div className='content'>
