@@ -10,7 +10,7 @@
             @include flex(flex-start, center, column);
             .title {
                 text-align: center;
-                margin: 20px 0;
+                margin: 30px 0;
                 @include style-font(bold, 25pt);
             }
             .subtitle {
