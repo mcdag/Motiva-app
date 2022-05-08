@@ -43,6 +43,7 @@ function Login() {
       } else {
         window.location.replace(`${window.location.origin}/app/child-activities`);
         Cookies.set('type', 'child');
+        Cookies.set('childIcon', response.data.icon);
       }
     }
   })

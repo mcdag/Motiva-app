@@ -7,8 +7,10 @@ import { useEffect, useState } from 'react';
 import { Task } from '../../interfaces/Task';
 import './styles.scss';
 import { UserService } from '../../services/UserService';
+import LogoutDialog from '../../components/LogoutDialog';
 
 function ChildActivities() {
+  const [logoutDialog, setLogoutDialog] = useState(false);
   const [dailyActivities, setDailyActivities] = useState<Task[]>([])
   const [relationshipActivities, setRelationshipActivities] = useState<Task[]>([])
   const [coin, setCoin] = useState(0);
@@ -38,8 +40,13 @@ function ChildActivities() {
     Cookies.remove('id');
     Cookies.remove('name');
     Cookies.remove('type');
+    Cookies.remove('childIcon');
     window.location.replace(`${window.location.origin}/auth/choose-login`)
   }
+
+  const handleClickOpenLogoutDialog = () => {
+    setLogoutDialog(!logoutDialog);
+  };
 
   return (
     <>
@@ -48,9 +55,12 @@ function ChildActivities() {
         <main className='body'>
           <div className='body-header'>
             <div className='div-logout-button'>
-              <button onClick={handleClickLogout} className='logout-button'>
+              <button onClick={handleClickOpenLogoutDialog} className='logout-button'>
                 <img className='logout' src={LogoutIcon} alt="Icone de logout" />
               </button>
+              {logoutDialog && (
+                <LogoutDialog handleFunction={handleClickOpenLogoutDialog} handleLogout={handleClickLogout} />
+              )}
             </div>
             <div className='div-title'>
               <h1 className='title'>Atividades</h1>
