@@ -3,7 +3,7 @@
 .child-activities-container {
   width: 100%;
   max-width: 500px;
-  padding: 25px;
+  padding: 10px 10px 10px 20px;
   box-sizing: border-box;
   margin: auto;
 
@@ -16,21 +16,32 @@
 
     .body {
         .body-header {
-            @include flex(space-between, center, row);
+            display: flex;
+            flex-direction: column;
     
-            .title {
-                align-self: center;
-                // margin: 20px 0;
-                @include style-font(bold, 25pt);
+            .div-logout-button {
+                display: flex;
+                justify-content: flex-end;
+    
+                .logout-button {
+                    background: transparent;
+                    border: 0;
+                }
             }
-            .logout-button {
-                background: transparent;
-                border: 0;
+
+            .div-title {
+                display: flex;
+                justify-content: center;
+
+                .title {
+                    align-self: center;
+                    @include style-font(bold, 25pt);
+                }
             }
     
         }
         .child-activities {
-            margin-top: 25px;
+            margin-top: 5px;
             @include flex(flex-start, center, column);
             
         }

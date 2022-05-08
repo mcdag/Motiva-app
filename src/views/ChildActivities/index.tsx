@@ -47,10 +47,14 @@ function ChildActivities() {
       <div className='child-activities-container'>
         <main className='body'>
           <div className='body-header'>
-            <h1 className='title'>Atividades</h1>
-            <button onClick={handleClickLogout} className='logout-button'>
-              <img className='logout' src={LogoutIcon} alt="Icone de logout" />
-            </button>
+            <div className='div-logout-button'>
+              <button onClick={handleClickLogout} className='logout-button'>
+                <img className='logout' src={LogoutIcon} alt="Icone de logout" />
+              </button>
+            </div>
+            <div className='div-title'>
+              <h1 className='title'>Atividades</h1>
+            </div>
           </div>
           <div className='child-activities'>
             <h2 className='with-parent'>Para tentar realizar sozinho</h2>
@@ -60,7 +64,7 @@ function ChildActivities() {
             }
           </div>
           <div className='parent-activities'>
-            <h2 className='with-parent'>Para realizar com o seu responsável</h2>
+            <h2 className='with-parent'>Para realizar em conjunto</h2>
             {relationshipActivities.map((activity) => 
               <a key={activity.id} href={`${window.location.origin}/app/activities-instructions/${activity.id}`}>
                 <ChildActivity activityName={activity.name} activityStatus={activity.done as boolean} />
