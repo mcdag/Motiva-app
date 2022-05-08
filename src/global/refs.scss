@@ -40,10 +40,16 @@ $width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
   } @else {
     display: flex;
+    display: -webkit-flex;
     justify-content: $justify;
     align-items: $align;
+    -webkit-align-items: $align;
+    -webkit-justify-content: $justify;
     flex-direction: $direction;
     flex-wrap: $wrap;
   }

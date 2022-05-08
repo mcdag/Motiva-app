@@ -3,9 +3,10 @@
 
 .choose-login-general-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
   width: 100%;
+  height: 100vh;
 
   .title-container {
     display: flex;
@@ -17,8 +18,6 @@
       font-style: normal;
       font-size: 30px;
       line-height: 38px;
-      margin-left: 2%;
-      margin-top: 7%;
     }
   }
   
@@ -28,7 +27,6 @@
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
-    min-height: 80vh;
     font-style: normal;
     font-weight: 500;
     font-size: 18px;

@@ -127,7 +127,7 @@ function RegisterChild() {
           <TextField required className='text-field' type='password' label='Senha' variant='outlined' onChange={(e) => setPassword(e.target.value)} />
         </div>
   
-        <Button text='Continuar' type='submit' />
+        <Button text='Continuar' type='submit'/>
       </form>
     </section>
   );

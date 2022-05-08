@@ -1,3 +1,5 @@
+@import '../../global//refs.scss';
+
 .instruction-container {
   display: flex;
   width: 90%;
@@ -12,9 +14,7 @@
 
     .header-left {
       width: 100%;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
+      @include flex(flex-start, center);
       
       .instruction-title {
         width: fit-content;
@@ -24,9 +24,7 @@
 
     .header-right {
       width: 100%;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
+      @include flex(flex-end, center);
       
       .instruction-title {
         width: fit-content;

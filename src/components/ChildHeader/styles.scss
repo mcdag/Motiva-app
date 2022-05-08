@@ -13,9 +13,7 @@
     // align-self: flex-end;
 
     a {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
+        @include flex(flex-end, center);
         margin-left: auto;
     }
 
